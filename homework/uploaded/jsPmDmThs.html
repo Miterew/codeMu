@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+
+    <input id="elem" value="text">
+
+    <script>
+        'use strict'
+        // ⊗jsPmDmThs
+        // #1
+
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('focus', function() {
+            this.value=1;
+        })
+
+        elem.addEventListener('blur', function() {
+            this.value=2;
+        })
+        
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

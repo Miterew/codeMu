@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <div id="division" class="content no-gap"></div>
+    <button class="btn">Жмяк</button>
+
+    <div id="elem"></div>
+
+
+    <script>
+        'use strict'
+
+        // ⊗jsPmDmEA
+        
+        // #1
+        let division = document.querySelector('#division');
+        let button = document.querySelector('.btn');
+
+        button.addEventListener('click', () => {
+            console.log(division.className);
+        })
+
+        // #2
+        button.addEventListener('click', () => {
+            division.className += ' newClass';
+            console.log(division.className);
+        })
+
+        // #3
+        button.addEventListener('click', () => {
+            let arr = division.className.split(' ');
+            console.log(arr);
+        })
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
