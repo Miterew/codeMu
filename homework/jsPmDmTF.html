@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <p class="parag">Абзац</p>
+
+    <input id="elem" value="1">
+    <input id="elem2" value="2">
+    <input id="elem3" value="3">
+    <input id="elem4" value="4">
+    <input id="elem5" value="5">
+
+    <button id="btn">123</button>
+
+    <script>
+        'use strict'
+        // ⊗jsPmDmTF
+        // #1
+        let elem = document.querySelector('#elem');
+        let elem2 = document.querySelector('#elem2');
+        let elem3 = document.querySelector('#elem3');
+        let elem4 = document.querySelector('#elem4');
+        let elem5 = document.querySelector('#elem5');
+
+
+        let button = document.querySelector('#btn');
+        let par = document.querySelector('.parag');
+
+        // button.addEventListener('click', function() {
+        //     elem.value = 'текст';
+        // })
+        
+
+        // #2
+        // button.addEventListener('click', function() {
+        //     par.textContent = elem.value;
+        // })
+
+        // #3
+        // button.addEventListener('click', () => {  // вспомним стрелочные
+        //     elem2.value = elem.value ** 2;
+        // })
+
+        // #4
+        // button.addEventListener('click', () => {
+        //     let val1 = elem.value;
+        //     let val2 = elem2.value;
+
+        //     elem.value = val2;
+        //     elem2.value = val1;
+        // })
+
+        // #5
+        button.addEventListener('click', () => {
+            let average = (+elem.value + +elem2.value +
+                      +elem3.value + +elem4.value +
+                      +elem5.value) / 5;
+            par.textContent = average;
+        })
+        
+        // VS открыто на пол экрана, какой плагин
+        // или стандарт использовать чтобы форматировать
+        // строки по длине автоматически? 
+        // Или вручную лучше по какому-то стандарту?
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
