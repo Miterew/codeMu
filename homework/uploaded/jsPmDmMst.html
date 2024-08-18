@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+
+    <!-- #10
+     <input id="inp1">
+    <input id="inp2">
+    <p id="res">000</p>
+    
+    <button id="btn">click</button> -->
+
+    <!-- <p>#11</p>
+    <input data-text="text1">
+    <input data-text="text2">
+    <input data-text="text3">
+    
+    <button id="btn">click</button> -->
+
+    <!-- 
+    <p>#12</p>
+
+    <input>
+    <input>
+    <input>
+    <button id="btn">click</button> 
+    -->
+
+<!-- 
+    <p>#13</p>
+    <input>
+    <input>
+    <input>
+
+    <button id="btn">click</button>
+  -->
+
+<!-- 
+    <p>#14</p>
+    <input id="inp1">
+    <input id="inp2">
+    <input id="inp3">
+    <button id="btn">click</button>
+  -->
+ 
+    <p>#15</p>
+    <input id="inp">
+
+
+
+
+    <script>
+        'use strict'
+        // ⊗jsPmDmMst
+        // #1
+
+        // let elems = document.querySelectorAll('p');
+        // for(let i of elems) {
+        //     i.textContent += '!';
+        // }
+
+        // #2
+
+        // let elems = document.querySelectorAll('p');
+
+        // for (let elem of elems) {
+        //     elem.addEventListener('click', function() {
+        //         this.textContent = +this.textContent + Number(1);
+        //     });
+        // }
+
+
+        // #3
+        // let button = document.querySelector('button');
+        // let elem   = document.querySelector('p');
+
+        // button.addEventListener('click', function() {
+        //     elem.innerHTML = '<b>text</b>';
+        // });
+
+        // #4
+        // let button = document.querySelector('button');
+        // let elems  = document.querySelectorAll('p');
+
+        // button.addEventListener('click', function() {
+        //     let sum = 0;
+            
+        //     for (let elem of elems) {
+        //         sum += Number(elem.textContent);
+        //     }
+            
+        //     console.log(sum);
+        // });
+
+
+        // // #5
+        // let elems = document.querySelectorAll('p');
+
+        // for (let elem of elems) {
+        //     elem.addEventListener('click', function() {
+        //         this.textContent += '!';
+        //     });
+        // }
+
+
+        // #6
+        // let button = document.querySelector('button');
+        // let elems  = document.querySelectorAll('p');
+
+        // button.addEventListener('click', function() {
+        //     for (let elem of elems) {
+        //         elem.innerHTML = '<b>' + elem.textContent + '</b>';
+        //     }
+        // });
+
+        // #7
+        // let button = document.querySelector('button');
+        // let elems  = document.querySelectorAll('p');
+        // let sum = 0;
+
+        // button.addEventListener('click', function() {
+        //     for (let elem of elems) {
+        //         sum += +elem.textContent;
+        //     }
+        //     console.log(sum);
+        // });
+
+
+        // #8
+        // let button = document.querySelector('button');
+        // let elems  = document.querySelectorAll('input');
+        
+        // button.addEventListener('click', function() {
+        //     let sum = 0;
+            
+        //     for (let elem of elems) {
+        //         sum += +elem.value;
+        //     }
+        //     console.log(sum);
+        // });
+
+
+        // #9
+        // let btn  = document.querySelector('#btn');
+        // let inp1 = document.querySelector('#inp1');
+        // let inp2 = document.querySelector('#inp2');
+        // let inp3 = document.querySelector('#inp3');
+
+        // btn.addEventListener('click', function() {
+        //     inp3.value = +inp1.value + +inp2.value;
+        // });
+
+        // #10
+        // let btn  = document.querySelector('#btn');
+        // let res  = document.querySelector('#res');
+        // let inp1 = document.querySelector('#inp1');
+        // let inp2 = document.querySelector('#inp2');
+
+        // btn.addEventListener('click', function() {
+        //     res.textContent = +inp1.value + +inp2.value;
+        // });
+
+        // #11
+        // let inputs = document.querySelectorAll('input')
+        // let button = document.querySelector('#btn')
+
+        // button.addEventListener('click', function() {
+        //     for (let input of inputs) {
+        //         if (input.value === input.dataset.text) {
+        //             input.classList.add('right')
+        //             console.log('right')
+        //         } else {
+        //             input.classList.add('wrong')
+        //         }
+        //     }
+        // });
+
+
+
+        // #12
+        // let inputs = document.querySelectorAll('input')
+        // let button = document.querySelector('#btn')
+
+        // let texts = [
+        //     'text1',
+        //     'text2',
+        //     'text3',
+        // ];
+
+        // button.addEventListener('click', function() {
+        //     for(let z = 0; z < texts.length; z++) { // добавил сброс для корректного отображения при повторном нажатии
+        //         inputs[z].classList.remove('right')
+        //         inputs[z].classList.remove('wrong')
+        //     }
+        
+        //     for (let i = 0; i < texts.length; i++) {
+        //             if (inputs[i].value === texts[i]) {
+        //                 inputs[i].classList.add('right')
+        //             } else {
+        //                 inputs[i].classList.add('wrong')
+        //             }
+        //     }
+        // });
+
+
+
+        // #13
+        // let inputs = document.querySelectorAll('input');
+        // let btn = document.querySelector('#btn');
+        
+
+        // btn.addEventListener('click', function() {
+        //     let sum = 0;
+
+        //     for (let input of inputs) {
+        //         sum += Number(input.value);
+        //     }
+            
+        //     console.log(sum);
+        // });
+
+
+
+        // #14
+        // let btn  = document.querySelector('#btn');
+        // let inp1 = document.querySelector('#inp1');
+        // let inp2 = document.querySelector('#inp2');
+        // let inp3 = document.querySelector('#inp3');
+
+        // btn.addEventListener('click', function() {
+        //     inp3.value = +inp1.value + +inp2.value;
+        // });
+
+        // #15
+        let inp = document.querySelector('#inp');
+
+        inp.addEventListener('blur', function() {
+            let digits = inp.value.split('');
+            let sum = 0;
+            
+            for (let digit of digits) {
+                sum += +digit;
+            }
+        
+            console.log(sum);
+        });
+
+
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

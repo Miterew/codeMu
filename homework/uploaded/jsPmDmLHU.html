@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <p>text1</p>
+    <p>text2</p>
+    <p>text3</p>
+    
+    <script>
+        'use strict'
+        // ⊗jsPmDmLHU
+        // #1
+        let elem = document.querySelectorAll('p');
+
+        for(let i of elem) {
+            i.addEventListener('click', setSay);
+        }
+
+        function setSay() {
+            this.textContent += '!';
+            this.removeEventListener('click', setSay);
+        }
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

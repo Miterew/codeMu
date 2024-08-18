@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    
+    <script>
+        'use strict'
+        // ⊗jsPmDmAHU
+        // #1
+        let elem = document.querySelectorAll('li');
+        
+        for(let i of elem) {
+            i.addEventListener('click', function calcPlusOne() {
+                this.textContent = +this.textContent + 1;
+                this.removeEventListener('click', calcPlusOne); // #2
+            })
+        }
+
+        // #3
+        for(let i of elem) {
+            i.addEventListener('click', function calcPlusOne() {
+                if(+this.textContent < 10) {
+                    this.textContent = +this.textContent + 1;
+                } else {
+                    this.removeEventListener('click', calcPlusOne);
+                }
+            })
+        }
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
