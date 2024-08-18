@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <p class="avzat" id="one">Первый</p>
+    <p class="avzat">Второй</p>
+    <p class="avzat">Третий</p>
+    <button class="btn">Клац</button>
+    <input class="inpt" value="1">
+    <input class="inpt2" value="2">
+
+    <script>
+        'use strict'
+        // ⊗jsPmDmEGG
+        // #1
+
+        let elem = document.querySelectorAll('.avzat');
+        let button = document.querySelector('.btn');
+
+
+        // button.addEventListener('click', function() {
+        //     for(let text of elem) {
+        //         text.textContent = 'text';
+        //     }
+        // })
+
+        // #2
+        // button.addEventListener('click', function() {
+        //     let number = 1;
+
+        //     for(let texter of elem) {
+        //         texter.textContent += ' ' + number++; // Или лучше number++ выносить явной отдельной строкой?
+        //     }
+        // })
+
+        // #3
+        let input = document.querySelector('.inpt');
+        let input2 = document.querySelector('.inpt2');
+        let abzatOne = document.querySelector('#one');
+
+        button.addEventListener('click', function() {
+            abzatOne.textContent = +input.value + +input2.value;
+        })
+
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

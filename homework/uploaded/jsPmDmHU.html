@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <a id='link' href='index.html'>Ссылка</a>
+    <button id="btn">1</button>
+    
+    <script>
+        'use strict'
+        // ⊗jsPmDmHU
+        // #1
+        let button = document.querySelector('#btn');
+        let link = document.querySelector('#link');
+
+        button.addEventListener('click', function() {
+            link.textContent = '1';
+        })
+
+        // #2
+        button.addEventListener('click', setRemoveEventListenerIfTen);
+
+        function setRemoveEventListenerIfTen() {
+            if(this.textContent >= 9) {
+                this.removeEventListener('click', setRemoveEventListenerIfTen)
+            }
+            this.textContent = +this.textContent + 1;
+        }
+
+
+    </script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
