@@ -54,6 +54,50 @@
     <a href="index3.html">Ссылка3</a><br>
     <button>Кнопка</button> -->
 
+    <!-- #13<br>
+    <a href="/index.html">Ссылка первая</a><br>
+    <a href="http://127.0.0.1:5500/index.html">Ссылка вторая</a><br>
+    <button>Кнопка</button> -->
+
+
+    <!-- #14<br>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p> -->
+
+    <!-- #15<br>
+    <input> -->
+
+    <!-- #16
+    <input>
+    <button id="plus">+1</button>
+    <button id="minus">-1</button> -->
+
+    <!-- #17<br>
+    <input>
+    <p>Один</p>
+    <p>Два</p> -->
+
+    <!-- #18<br><br>
+    <div>Длинный текст</div><br>
+    <div>Длинный текст два</div><br> -->
+
+    <!-- #19, 20<br><br>
+    <input>
+    <button>Кнопка</button> -->
+
+    <!-- #21, 22
+    <input>
+    <button>Кнопка</button>
+    <p>Текст</p> -->
+
+    #23<br><br>
+    <input id="input1">
+    <input id="input2">
+    <input id="input3">
+    <button>Кнопка</button>
+    <p>Текст</p>
+
     <script>
         'use strict'
         // ⊗jsPmDmPm
@@ -211,6 +255,179 @@
         //     }
         // })
 
+        // #13
+        // let elems = document.querySelectorAll('a');
+        // let button =  document.querySelector('button');
+
+        // button.addEventListener('click', function () {
+        //     for(let elem of elems) {
+        //         if (elem.href.slice(0, 7) === 'http://') {
+        //             elem.textContent += '→';
+        //         }
+        //     }
+        // })
+
+
+        // #14
+        // let elems = document.querySelectorAll('p');
+
+        // for(let elem of elems) {
+        //     elem.addEventListener('click', function() {
+        //         elem.textContent = Number(elem.textContent) ** 2;
+        //     })
+        // }
+
+        // #15
+        // let dateInput = document.querySelector('input');
+
+        // dateInput.addEventListener('blur', function() {
+        //     // приходит 21.08.2024
+        //     const arrWeekDays = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+            
+        //     let arrDateDMY = dateInput.value.split('.');
+        //     let newDate = new Date(arrDateDMY[2], arrDateDMY[1] - 1, arrDateDMY[0]); // пока вспомнил что месяц начался с 0 выпил 3 кофе
+
+        //     console.log(arrWeekDays[newDate.getDay()]);
+        // });
+
+        
+        // #16
+        // const plus = document.querySelector('#plus');
+        // const minus = document.querySelector('#minus');
+        // const input = document.querySelector('input');
+
+        // minus.addEventListener('click', function() {
+        //     if(Number(input.value) - 1 < 0) {
+        //         alert('Извините, ниже нуля низя');
+        //     } else {
+        //         input.value = Number(input.value) - 1;
+        //     }
+        // })
+
+        // plus.addEventListener('click', function() {
+        //     input.value = Number(input.value) + 1;
+        // })
+
+        // #17
+        // let input = document.querySelector('input');
+        // let parags = document.querySelectorAll('p');
+        
+        // let sum = 0;
+        // for(let par of parags) {
+        //     par.addEventListener('click', function() {
+        //         sum += 1;
+        //         input.value = sum;
+        //     })
+        // }
+
+        // #18
+        // let divs = document.querySelectorAll('div');
+        
+        // for(let div of divs) {
+        //     if (div.textContent.length > 10){
+        //         div.textContent = div.textContent.slice(0, 10) + '...';
+        //     }
+        // }
+
+        // #19 // я имею гуглить xD https://code.mu/ru/javascript/video/lesson/random-string-of-characters/
+        // const button = document.querySelector('button'); // решил потестить const'ы
+        // const input = document.querySelector('input');
+
+        // button.addEventListener('click', function() {
+        //     const symbols = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPp'
+        //     input.value = '';
+
+        //     for(let i = 0; i < 8; i++) {
+        //         input.value += symbols[getRandomNum(0, symbols.length -1)]
+        //     }
+
+
+        //     function getRandomNum(min, max) {
+        //         return Math.floor(Math.random() * (max - min + 1)) + min;
+        //     }
+
+        //     return '';
+        // })
+
+
+        // #20   // На этой задаче сидел час если не больше)
+        // let input = document.querySelector('input');
+        // let button = document.querySelector('button');
+
+        // button.addEventListener('click', function() {
+        //     let inputArr = input.value.split('');
+
+        //     for(let i = inputArr.length -1; i > 0; i--) {  
+        //         let j = Math.floor(Math.random() * (i + 1))
+
+        //         // нагуглил алгоритм Фишера-Йетса для перемешивания массива
+        //         let newLet = inputArr[i];
+        //         inputArr[i] = inputArr[j];
+        //         inputArr[j] = newLet;
+        //     }
+
+        //     input.value = inputArr.join('');
+        // })
+
+
+        // #21
+        // const button = document.querySelector('button');
+        // const input = document.querySelector('input');
+        // const par = document.querySelector('p');
+
+        // button.addEventListener('click', function() {
+        //     par.textContent = (input.value - 32) * 5/9;
+        // })
+
+
+        // #22
+        // const button = document.querySelector('button');
+        // const input = document.querySelector('input');
+        // const par = document.querySelector('p');
+
+        // button.addEventListener('click', function() {
+        //     let num = Number(input.value);
+        //     let sum = 1;
+
+        //     for(let i = 1; i <= num; i++) {
+        //         sum *= i;
+        //     }
+
+        //     par.textContent = sum;
+        // })
+
+        
+        // #23
+        const aInput = document.querySelector('#input1');
+        const bInput = document.querySelector('#input2');
+        const cInput = document.querySelector('#input3');
+        const par = document.querySelector('p');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', function() {
+            let a = Number(aInput.value);
+            let b = Number(bInput.value);
+            let c = Number(cInput.value);
+
+
+            let discr = b ** 2 - 4 * a * c;
+            console.log('Дискриминант = ' + discr);
+
+            if (discr > 0) {
+                let x1 = ( (-b + Math.sqrt(discr)) ) / (2 * a);
+                let x2 = ( (-b - Math.sqrt(discr)) ) / (2 * a);
+                par.textContent = x1 + ' и ' + x2;
+
+            } else if (discr == 0) {
+                let x = -b / (2 * a);
+                par.textContent = x;
+
+            } else if (discr < 0) {
+                par.textContent = 'Уравнение не имеет вещественных корней';
+            }
+            
+        })
+   
     </script>
     <!-- <script src="./script.js"></script> -->
 </body>
