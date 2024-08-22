@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+    <div id="elem">Текст</div>
+    <button id="btn">Кнопка</button>
+
+    <script>
+        'use strict'
+        // ⊗jsPmStHP
+        // #1
+
+        let elem = document.querySelector('#elem');
+        let button = document.querySelector('#btn');
+
+        button.addEventListener('click', function() {
+            elem.style.fontSize = '20px';
+            elem.style.color = 'white' // добавил для читабельности
+            elem.style.backgroundColor = 'blue';
+            elem.style.borderTop = 'solid 1px black';
+        })
+
+
+        
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

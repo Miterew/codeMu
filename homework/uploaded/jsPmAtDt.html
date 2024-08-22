@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+</head>
+<body>
+
+    <!-- <div id="elem" data-text="str">text</div> -->
+
+    <!-- #2
+    <div data-num="1">text</div>
+    <div data-num="2">text</div>
+    <div data-num="3">text</div>
+    <div data-num="4">text</div>
+    <div data-num="5">text</div> -->
+
+
+    <!-- #3
+    <button class="btn" data-counter="0">ЖМИ</button>
+    <button class="showBtn">Узнать кол-во</button>
+    <p>Кликов не найдено</p> -->
+
+    
+    <!-- #4
+    <input id="elem" data-length="5"> -->
+
+
+    №5
+    <input id="elem" data-min="5" data-max="10">
+
+
+    <script>
+        'use strict'
+        // ⊗jsPmAtDt
+
+
+        // #1
+        // let elem = document.querySelector('#elem');
+
+        // elem.addEventListener('click', function() {
+        //     elem.textContent += elem.dataset.text;
+        // })
+
+
+
+        // #2
+        // let elems = document.querySelectorAll('div');
+
+        // for(let elem of elems) {
+        //     elem.addEventListener('click', function() {
+        //         elem.textContent += elem.dataset.num;
+        //     })
+        // }
+
+
+
+
+        // // #3
+        // let button = document.querySelector('.btn');
+        // let showButton = document.querySelector('.showBtn');
+        // let par = document.querySelector('p');
+
+        // button.addEventListener('click', function() {
+        //     button.dataset.counter = Number(button.dataset.counter) + 1;
+        // })
+
+        // showButton.addEventListener('click', function() {
+        //     par.textContent = button.dataset.counter;
+        // })
+
+
+
+        // #4
+        // let elem = document.querySelector('#elem');
+        // elem.addEventListener('blur', function() {
+        //     if (elem.value.length < elem.dataset.length) {
+        //         console.log('Слишком мало символов')
+        //     } else {
+        //         console.log('Шалом кореш')
+        //     }
+        // })
+
+
+        // №5
+        let inputElem = document.querySelector('#elem');
+        inputElem.addEventListener('blur', function() {
+            if(inputElem.value.length < inputElem.dataset.min) {
+                console.log('Мало')
+            } else if (inputElem.value.length > inputElem.dataset.max) {
+                console.log('Много')
+            } else {
+                console.log('Збс')
+            }
+        })
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

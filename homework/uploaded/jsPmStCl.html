@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Текст</p>
+    <button id="btn_crossout">Перечеркнуть</button>
+    <button id="btn_bold">Сделать жирным</button>
+    <button id="btn_colored">Сделать красным</button>
+
+    <script>
+        'use strict'
+        // ⊗jsPmStCl
+        // #1
+
+
+        // let elems = document.querySelectorAll('p');
+
+        // for (let elem of elems) {
+        //     elem.addEventListener('click', function() {
+        //         this.classList.add('colored'); // добавляем абзацу класс
+        //     });
+        // }
+        // Задание:
+        // Объясните, почему я выбрал для названия класса слово colored, а не слово green, явно указывающее на желаемый нами цвет.
+        
+        
+        
+        // Ответ:
+        // Слово colored выбрано вместо слова green так как
+        // цвет может измениться со временем, а смысл "покрашено" останется
+
+        // #2
+        const par = document.querySelector('p'); // попробуем через const
+        const btnCross = document.querySelector('#btn_crossout');
+        const btnBold = document.querySelector('#btn_bold');
+        const btnColor = document.querySelector('#btn_colored'); // намек  из 1 задания понял
+
+        btnCross.addEventListener('click', function() {
+            par.classList.toggle('strikethrough'); // сделал переключатели
+        })
+
+        btnBold.addEventListener('click', function() {
+            par.classList.toggle('bold'); 
+        })
+
+        btnColor.addEventListener('click', function() {
+            par.classList.toggle('colored');
+        })
+        
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
