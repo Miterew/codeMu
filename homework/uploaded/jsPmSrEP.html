@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div>
+        <ul>
+            <li>text</li>
+            <li>text</li>
+            <li id="elem">text</li>
+            <li>text</li>
+            <li>text</li>
+        </ul>
+    </div>
+
+    <script>
+        'use strict'
+        // ⊗jsPmSrEP
+        const elem = document.querySelector('#elem');
+        
+        // #1
+        elem.parentElement.classList.add('colored');
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

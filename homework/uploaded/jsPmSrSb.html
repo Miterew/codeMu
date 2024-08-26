@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+
+    <ul>
+        <li>text1</li>
+        <li>text2</li>
+        <li id="elem">text3</li>
+        <li>text4</li>
+        <li>text5</li>
+    </ul>
+
+<script>
+        'use strict'
+        // ⊗jsPmSrSb
+
+        let elem = document.querySelector('#elem');
+
+        // // #1
+        // elem.previousElementSibling.textContent += '!';
+
+        // // #2
+        // elem.nextElementSibling.textContent += '!';
+
+        // // #3
+        // elem.nextElementSibling.nextElementSibling.textContent += '!';
+
+        // #4
+        let newVar = elem.nextElementSibling.textContent; 
+            
+        elem.nextElementSibling.textContent = elem.previousElementSibling.textContent;
+        elem.previousElementSibling.textContent = newVar;
+
+        // Изначально написал так для наглядности, но не работает
+        // let newVar = elem.nextElementSibling.textContent; // так почему-то не работает
+        // let nextText = elem.nextElementSibling.textContent;
+        // let prevText = elem.previousElementSibling.textContent;
+
+        // nextText = prevText;    
+        // prevText = newVar;      // не понимаю почему не работает
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

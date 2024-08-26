@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- #1
+    <header>
+        <div>
+            <p>
+                <span id="elem">123</span>
+            </p>
+        </div>
+    </header> -->
+
+
+    #2
+    <header>
+        <div class="www" id="2">
+            <p class="www" id="1">
+                <span id="elem"></span>
+            </p>
+        </div>
+    </header>
+    <script>
+        'use strict'
+        // ⊗jsPmSrAP
+        const elem = document.querySelector('#elem');
+        
+        // #1
+        elem.closest('div').classList.add('colored'); // покрасил в красный чтоб было явно
+
+        // #2
+        console.log( elem.closest('.www').id );
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
