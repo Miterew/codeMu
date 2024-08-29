@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="inputCheckbox">
+    <button id="btn">Вкл</button>
+    <button id="btn2">Выкл</button>
+    <button id="btn3">Смена текста</button>
+    <p>Текст</p>
+
+<script>
+        'use strict'
+        // ⊗jsPmFmChb
+
+        // // #1
+        const elem = document.querySelector('#inputCheckbox');
+        const btn = document.querySelector('#btn');
+        const btn2 = document.querySelector('#btn2');
+
+        btn.addEventListener('click', () => {
+            elem.checked = true;
+        });
+
+        btn2.addEventListener('click', () => {
+            elem.checked = false;
+        });
+
+
+        // #2
+        const par = document.querySelector('p');
+        const btn3 = document.querySelector('#btn3');
+        btn3.addEventListener('click', () => {
+            if(elem.checked === true){
+                par.textContent = 'Привет';
+            } else {
+                par.textContent = 'Пока';
+            }
+        })
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

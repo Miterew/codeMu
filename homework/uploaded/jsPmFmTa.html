@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <textarea id="elem">Многострочно</textarea>
+    <p>Текст</p>
+
+<script>
+        'use strict'
+        // ⊗jsPmFmTa
+
+        // #1
+        const elem = document.querySelector('#elem');
+        const par = document.querySelector('p');
+
+        elem.addEventListener('blur', () => {
+            par.textContent = elem.value;
+        })
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

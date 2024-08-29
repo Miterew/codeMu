@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .colored {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <input>
+    <p>Текст</p>
+
+    <input type="checkbox">
+
+    <input id="four">
+<script>
+    // ⊗jsPmFmOch
+
+    const inFix = document.querySelector('input');
+    const par = document.querySelector('p');
+
+    // #1
+    inFix.addEventListener('change', function() {
+        par.textContent = inFix.value;
+    })
+
+    // #2
+    const checkBoxChecker = document.querySelector('input[type="checkbox"]');
+    
+    checkBoxChecker.addEventListener('change', function () {
+        console.log(checkBoxChecker.checked);
+    })
+
+    // #3
+    // Разница между blur и change в том, что при blur 
+    // мы можем наводиться и убирать фокус, но не факт, что 
+    // мы внесли какие-то изменения, 
+    // а change прямо отслеживает изменения
+
+    
+    // #4
+    const inputF = document.querySelector('#four');
+
+    inputF.addEventListener('change', function() {
+        if(inputF.value.length < 5) {
+            inputF.classList.add('colored');
+            inputF.classList.remove('coloredGreen');  // или я не правильно убираю лишний класс?
+
+        } else {
+            inputF.classList.add('coloredGreen');
+            inputF.classList.remove('colored');  // или я не правильно убираю лишний класс?
+        }
+    });
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

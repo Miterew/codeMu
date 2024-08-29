@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="radio" name="location" value="Первый">
+    <input type="radio" name="location" value="Второй">
+    <input type="radio" name="location" value="Третий">
+    <p>Текстовое описание</p>
+    <button>Жмяк</button>
+
+<script>
+    // ⊗jsPmFmRd
+
+    const radios = document.querySelectorAll('input[type="radio"]')
+    const par = document.querySelector('p');
+    const btn = document.querySelector('button');
+
+    btn.addEventListener('click', () => {
+        let val = '';
+        
+        for(let radio of radios) {
+            if(radio.checked) {
+                val = radio.value;
+            }
+        }
+
+        par.textContent = val;
+    })
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

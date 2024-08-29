@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="elem" type="checkbox">
+    <input id="button" type="submit">
+
+<script>
+    // ⊗jsPmFmAWVA
+
+    let elem   = document.querySelector('#elem');
+    let button = document.querySelector('#button');
+
+    // #1
+    // Код работает путем переключения false и true на обратное значение через !
+
+    // #2
+    button.addEventListener('click', () => {
+        elem.checked = !elem.checked;
+    })
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

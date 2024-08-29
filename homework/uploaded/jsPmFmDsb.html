@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <textarea id="elem">Многострочно</textarea>
+    <button id="btn">Текст</button>
+    <button id="btn2">Текст</button>
+    <button id="btn3">Текст</button>
+
+<script>
+        'use strict'
+        // ⊗jsPmFmDsb
+
+        // #1
+        const elem = document.querySelector('#elem');
+        const btn = document.querySelector('#btn');
+        const btn2 = document.querySelector('#btn2');
+        const btn3 = document.querySelector('#btn3');
+
+        btn.addEventListener('click', () => {
+            elem.disabled = true;
+        });
+
+        // #2
+        btn2.addEventListener('click', () => {
+            elem.disabled = false;
+        });
+
+        // #3
+        btn3.addEventListener('click', () => {
+            console.log(elem.disabled);
+        })
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
