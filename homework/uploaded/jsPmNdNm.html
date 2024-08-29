@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="elem">txt<b>tag</b><!--com-->
+        txt<b>tag</b><!--com--></div> 
+
+
+<script>
+        'use strict'
+        // ⊗jsPmNdNm
+
+        let elem = document.querySelector('#elem');
+
+        for(let element of elem.childNodes) {
+            console.log(element.nodeName); 
+        }
+
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>

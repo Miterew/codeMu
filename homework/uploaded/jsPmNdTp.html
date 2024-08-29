@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+
+    <style>
+        .colored {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="elem">txt<b>tag</b><!--com-->
+        txt<b>tag</b><!--com--></div> 
+
+
+<script>
+        'use strict'
+        // ⊗jsPmNdTp
+
+        let elems = document.querySelector('#elem');      
+        
+        for(let elem of elems.childNodes) {
+            if (elem.nodeType === 1 || elem.nodeType === 3) {
+                console.log(elem.textContent)
+            }
+        };
+
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
