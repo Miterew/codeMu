@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <select id="select">
+        <option>one</option>
+        <option selected>two</option>
+        <option>three</option>
+    </select>
+
+    <select id="years2030">
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option selected>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+    </select>
+
+    <p>Текст</p>
+    <p id="vis">Текст</p>
+
+    <button>Кнопка</button>
+
+    <script>
+    // ⊗jsPmSlInr
+    // #1
+    
+    const select = document.querySelector('#select');
+    const par = document.querySelector('p');
+    const btn = document.querySelector('button');
+    
+    btn.addEventListener('click', function() {
+        par.textContent = select.value;
+    })
+
+    // #2
+    const yearSelected = document.querySelector('#years2030');
+    const vis = document.querySelector('#vis');
+
+    btn.addEventListener('click', function() {
+        let isVis = (+yearSelected.value % 4 === 0) ? 'Год високосный' : 'Год не високосный';
+        vis.textContent = isVis;
+    })
+
+</script>
+</body>
+</html>

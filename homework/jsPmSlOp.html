@@ -20,22 +20,22 @@
     <select id="select">
         <option value="one">один</option>
         <option value="two">два</option>
-        <option value="three">три</option>
+        <option value="three" selected>три</option>
     </select>
 
-    <button>Тык</button>
 <script>
-    // ⊗jsPmSlOS
+    // ⊗jsPmSlOp
     // #1
 
     const select = document.querySelector('#select');
-    const button = document.querySelector('button');
-    let option = select[select.length - 1];
 
-    button.addEventListener('click', function() {
-        option.selected = true;
-    })
-
+    for(let elem of select) {
+        if(elem.selected) {
+            elem.text += '!';
+        } else {
+            elem.text += '?';
+        }
+    }
 
 
 </script>

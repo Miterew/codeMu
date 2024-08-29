@@ -23,21 +23,15 @@
         <option value="three">три</option>
     </select>
 
-    <button>Тык</button>
 <script>
-    // ⊗jsPmSlOS
+    // ⊗jsPmSlIAA
     // #1
 
-    const select = document.querySelector('#select');
-    const button = document.querySelector('button');
-    let option = select[select.length - 1];
+    let select = document.querySelector('#select');
 
-    button.addEventListener('click', function() {
-        option.selected = true;
-    })
-
-
-
+    for(let elem of select) {
+        elem.textContent += ' ' + elem.value;
+    }
 </script>
 </body>
 </html>

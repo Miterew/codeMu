@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<select id="curMonth">
+    <option value="0">Янв</option>
+    <option value="1">Фев</option>
+    <option value="2">Март</option>
+    <option value="3">Апр</option>
+    <option value="4">Май</option>
+    <option value="5">Июнь</option>
+    <option value="6">Июль</option>
+    <option value="7">Авг</option>
+    <option value="8">Сен</option>
+    <option value="9">Окт</option>
+    <option value="10">Ноя</option>
+    <option value="11">Дек</option>
+</select>
+
+<script>
+    // ⊗jsPmSlSICh
+    // #1
+    
+    let date = new Date();
+    let curMonth = date.getMonth();
+    
+    const selectMonth = document.querySelector('#curMonth');
+    selectMonth.value = curMonth;
+
+</script>
+</body>
+</html>

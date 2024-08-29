@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- #1<br>
+    <textarea></textarea>
+    <div></div> -->
+
+    <!-- #2<br>
+    <input type="checkbox">
+    <div></div>
+    <button>button</button> -->
+
+    #3<br>
+    <input type="checkbox">
+    <button>button</button>
+
+
+    <script>
+    // ⊗jsPmFmMst
+    // #1
+
+    // let textarea = document.querySelector('textarea');
+    // let div = document.querySelector('div');
+
+    // textarea.addEventListener('blur', function() {
+    //     div.textContent = textarea.value;
+    // });
+
+
+    // #2
+    // let checkbox = document.querySelector('input');
+    // let button = document.querySelector('button');
+    // let div = document.querySelector('div');
+
+    // button.addEventListener('click', function() {
+    //     if (checkbox.checked) {
+    //         div.textContent = '111';
+    //     } else {
+    //         div.textContent = '222';
+    //     }
+    // });
+    
+
+    // #3
+    let checkbox = document.querySelector('input[type="checkbox"]');
+    let button = document.querySelector('button');
+
+    button.addEventListener('click', function() {
+        if (checkbox.checked) {
+            console.log('+++');
+        } else {
+            console.log('---');
+        }
+    }); 
+
+
+
+
+</script>
+</body>
+</html>

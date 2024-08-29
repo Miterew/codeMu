@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<input>
+<select>
+    <option>Один</option>
+    <option>Два</option>
+    <option>Три</option>
+</select>
+
+
+<select id="dayWeek">
+    <option>Пн</option>
+    <option>Вт</option>
+    <option>Ср</option>
+    <option>Чт</option>
+    <option>Пт</option>
+    <option>Сб</option>
+    <option>Вс</option>
+</select>
+<script>
+    // ⊗jsPmSlSIN
+    // #1
+    const input = document.querySelector('input');
+    const select = document.querySelector('select');
+
+    input.addEventListener('blur', function() {
+        select.selectedIndex = input.value;
+    })
+
+    // #2
+    let date = new Date();
+    let curDayWeek = date.getDay();
+    const dayWeekSel = document.querySelector('#dayWeek');
+
+    dayWeekSel.selectedIndex = curDayWeek - 1;
+</script>
+</body>
+</html>

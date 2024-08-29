@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <input id="elem">
+    <p>Абац</p>
+
+<script>
+    
+    // ⊗jsPmFmOin
+
+
+    const elem = document.querySelector('#elem');
+
+    // #1
+    // elem.addEventListener('input', function() {
+    //     if(elem.value.length >= 5) {
+    //         console.log('Текст набрал 5 символов')
+    //     }
+    // })
+
+    // №2
+    const par = document.querySelector('p');
+
+    elem.addEventListener('input', function() {
+        if(elem.value.length < 5) {
+            let number = 5 - elem.value.length; 
+            par.textContent = 'Впишите ещё ' + number + ' символа';
+        } else if (elem.value.length === 5) {
+            par.textContent = 'Символов идеальное количество';
+        } else if (elem.value.length > 5) {
+            let number = elem.value.length - 5;
+            par.textContent = 'Удалите ' + number + ' символа(ов)';
+        }
+    })
+
+</script>
+    <!-- <script src="./script.js"></script> -->
+</body>
+</html>
