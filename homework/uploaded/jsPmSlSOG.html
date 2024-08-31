@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <select>
+        <option>Раз</option>
+        <option>Два</option>
+        <option>Три</option>
+    </select>
+    <button>Жмяк</button>
+
+<script>
+    // ⊗jsPmSlSOG
+    // #1
+
+    let select = document.querySelector('select');
+    let button = document.querySelector('button');
+
+    button.addEventListener('click', function() {
+        console.log(select[select.selectedIndex].textContent);
+    })
+
+    // #2
+    button.addEventListener('click', function () {
+        select[select.selectedIndex].textContent += '!';
+    })
+
+
+</script>
+</body>
+</html>

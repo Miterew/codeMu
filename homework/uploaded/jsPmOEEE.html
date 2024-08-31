@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+
+        ul {
+            padding: 30px;
+            border: 1px solid red;
+        }
+        li {
+            list-style-type: none;
+            margin-bottom: 20px;
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+
+<script>
+    // ⊗jsPmOEEE
+    // #1
+
+    const elem = document.querySelector('#elem');
+
+    elem.addEventListener('click', function(event) {
+        if(event.target.tagName === 'UL'){
+            console.log('Это ul')
+        } else if (event.target.tagName === 'LI') {
+            event.target.textContent += '!';
+        }
+    })
+
+
+
+</script>
+</body>
+</html>

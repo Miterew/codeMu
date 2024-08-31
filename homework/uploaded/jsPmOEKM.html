@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color:rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <p>Текст</p>
+    <button id="elem">text</button> -->
+
+    <ul>
+        <li>Раз</li>
+        <li>Два</li>
+        <li>Три</li>
+        <li>Четыре</li>
+        <li>Пять</li>
+    </ul>
+
+<script>
+    // ⊗jsPmOEKM
+    // #1
+    let elem = document.querySelector('#elem');
+    let par = document.querySelector('p');
+
+    // #1
+    // par.addEventListener('click', function(event) {
+    //     if(event.altKey) {
+    //         par.classList.add('coloredRed');
+    //     }
+    // })
+
+    // #2
+    let ul = document.querySelector('ul');
+
+    ul.addEventListener('click', function(event) {
+        if(event.ctrlKey) {
+            event.target.textContent += '1';
+        } else if (event.shiftKey) {
+            event.target.textContent += '2';
+
+        }
+    })
+
+</script>
+</body>
+</html>

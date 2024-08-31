@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник</title>
+
+    <style>
+        .coloredRed {
+            border-color: red;
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <p>0 : 0</p>
+
+<script>
+    // ⊗jsPmOEEC
+    // #1
+    let elem = document.querySelector('p');
+
+    document.addEventListener('mousemove', function () {
+        elem.textContent = event.clientX + ' : ' + event.clientY;
+    })
+
+</script>
+</body>
+</html>
