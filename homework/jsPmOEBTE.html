@@ -37,23 +37,59 @@
             background-color: rgb(54, 203, 54);
         }
 
-        #block:not(.active) {
-            display: none;
+
+        div,
+        ul,
+        li {
+            padding: 20px;
+        }
+
+        div {
+            border: 1px solid red;
+        }
+
+        ul {
+            border: 1px solid orange;
+        }
+
+        li {
+            border: 1px solid green;
         }
     </style>
 </head>
 
 <body>
 
-
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
 
 
 
     <script>
-        // ⊗jsPmOEBUs
-        // #1
+        // ⊗jsPmOEBTE
+        // #1, 2
 
+        const div = document.querySelector('div');
 
+        div.addEventListener('click', function(event) {
+            if(event.target.matches('DIV')) {
+                console.log('в div');
+            }
+
+            if(event.target.matches('UL')) {
+                console.log('в ul');
+            }
+
+            if(event.target.matches('LI')) {
+                console.log('добавил "!" в li');
+                event.target.textContent += '!';
+            }
+        })
 
     </script>
 </body>

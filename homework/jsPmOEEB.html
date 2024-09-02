@@ -12,7 +12,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .coloredRed {
             height: 200px;
             width: 200px;
@@ -24,21 +23,15 @@
             width: 50px;
             background-color: yellow;
         }
-
         .coloredBigYellow {
             height: 200px;
             width: 200px;
             background-color: yellow;
         }
-
         .coloredGreen {
             height: 50px;
             width: 50px;
             background-color: rgb(54, 203, 54);
-        }
-
-        #block:not(.active) {
-            display: none;
         }
     </style>
 </head>
@@ -47,13 +40,36 @@
 
 
 
+    <div id="top" class="coloredRed centered">
+        <div id="middle" class="coloredYellow centered">
+            <p id="bottom">O</p>
+        </div>
+    </div>
+
 
 
     <script>
-        // ⊗jsPmOEBUs
+        // ⊗jsPmOEEB
         // #1
 
+        let middle = document.querySelector('#middle');
+        const topper = document.querySelector('#top');
 
+        middle.addEventListener('click', function() {
+            this.classList.replace('coloredYellow', 'coloredGreen');
+        });
+        middle.addEventListener('mouseover', function() {
+            this.classList.replace('coloredYellow', 'coloredGreen');
+        });
+
+
+        topper.addEventListener('mouseover', function() {
+            this.classList.replace('coloredRed', 'coloredBigYellow');
+        })
+
+        // #2
+        // Вычислил, что не работает focus и blur, но зато
+        // загуглил для себя mouseover и mouseout
 
     </script>
 </body>
