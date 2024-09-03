@@ -21,20 +21,17 @@
     <ul>
         <li>Раз</li>
         <li>Два</li>
-        <li>Три <b>поросенка</b> и я</li>
+        <li>Три</li>
         <li>Четыре</li>
     </ul>
 
 <script>
-    // ⊗jsPmOEUED
+    // ⊗jsPmOEED
     // #1
     let list = document.querySelector('ul');
 
     list.addEventListener('click', function(event) {
-        let li = event.target.closest('li');
-
-        // event.target.textContent += '!';
-        li.innerHTML = li.innerHTML + '!';
+        event.target.textContent += '!'
     })
 
 </script>
