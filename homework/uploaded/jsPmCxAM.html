@@ -25,19 +25,14 @@
 
     <script>
         "use strict";
-        // ⊗jsPmCxBM
+        // ⊗jsPmCxAM
+        let elem = document.querySelector('#elem');
 
-        let elem = document.getElementById('elem');
-
-        function func(name, surname) {
+        function func(surname, name) {
             console.log(this.value + ', ' + name + ' ' + surname);
         }
 
-        func = func.bind(elem);
-        // тут напишите конструкцию с bind()
-
-        func('John', 'Smit'); // тут должно вывести 'hello, John Smit'
-        func('Eric', 'Luis'); // тут должно вывести 'hello, Eric Luis'    
+        func.apply(elem, ['Smit', 'John']); // тут должно вывести 'hello, John Smit'
     </script>
 </body>
 
