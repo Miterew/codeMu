@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(54, 203, 54);
+        }
+
+        #block:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="elem" value="10" type="submit">
+    <p>3</p>
+
+    <script>
+        // ⊗jsPmTrPr
+        let elem = document.querySelector('p');
+        let button = document.querySelector('#elem');
+
+        button.addEventListener('click', function() {
+            setInterval(function() {
+                elem.textContent = Number(elem.textContent) + 1;
+            }, 1000)
+        })
+
+    </script>
+</body>
+
+</html>

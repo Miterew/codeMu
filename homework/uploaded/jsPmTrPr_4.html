@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(54, 203, 54);
+        }
+
+        #block:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input>
+    <p>Текст</p>
+
+    <script>
+        // ⊗jsPmTrPr 4
+
+        let input = document.querySelector('input');
+        let par = document.querySelector('p');
+
+        input.addEventListener('blur', function () {
+            let self = this;
+            let num = input.value;
+            par.textContent = num;
+
+            let timerID = setInterval(function () {
+                par.textContent = Number(num) - 1;
+                num--;
+                
+                if (num <= 0) {
+                    clearInterval(timerID);
+                };
+            }, 1000);
+
+
+        })
+
+    </script>
+</body>
+
+</html>

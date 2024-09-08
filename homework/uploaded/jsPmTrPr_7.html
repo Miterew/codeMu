@@ -18,12 +18,20 @@
 </head>
 
 <body>
-
+    <p>Текст</p>
 
 
     <script>
-        // ⊗jsPmTrPr 
+        // ⊗jsPmTrPr 7
 
+        let par = document.querySelector('p');
+
+        par.classList.add('coloredGreen');
+
+        setInterval(function() {
+            par.classList.toggle('coloredRed');
+            par.classList.toggle('coloredGreen'); // так переключать цвета каждую секунду норм или лучше replace'ами?
+        }, 1000)
 
 </script>
 </body>

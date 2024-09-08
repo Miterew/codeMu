@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(54, 203, 54);
+        }
+
+        #block:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input>
+    <button>Кнопка</button>
+    <p>Текст</p>
+
+    <script>
+        // ⊗jsPmTrPr 5
+        let par = document.querySelector('p');
+        let button = document.querySelector('button');
+        let input = document.querySelector('input');
+
+        button.addEventListener('click', function () {
+            par.textContent = input.value;
+
+            let timerID = setInterval(function () {
+                par.textContent -= 1;
+
+                if (par.textContent <= 0) {
+                    clearInterval(timerID);
+                }
+            }, 1000)
+        })
+
+
+    </script>
+</body>
+
+</html>
