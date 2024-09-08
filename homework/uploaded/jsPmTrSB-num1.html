@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="start">Start</button>
+    <button id="stopn">Stop</button>
+
+    <script>
+        "use strict";
+        // ⊗jsPmTrSB-num1
+        // #1
+        let start = document.querySelector('#start');
+        let stopTim = document.querySelector('#stopn');
+        let stoper;
+        let i = 10;
+
+        function stopInterval(TimerID) {
+            clearInterval(TimerID);
+        };
+
+        start.addEventListener('click', function func() {
+            stoper = setInterval(() => {
+                console.log(--i);
+                if(i <= 0) {
+                    stopInterval(stoper);
+                }
+            }, 1000);
+
+            this.removeEventListener('click', func);
+        });
+         
+        stopTim.addEventListener('click', () => {
+            stopInterval(stoper);
+        });
+    </script>
+</body>
+
+</html>

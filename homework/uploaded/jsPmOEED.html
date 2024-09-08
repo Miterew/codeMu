@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Учебник нов</title>
 
     <style>
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         .coloredRed {
             border-color: rgb(170, 61, 61);
             color:rgb(249, 25, 25)
         }
 
         .coloredGreen {
-            height: 50px;
-            width: 50px;
-            background-color: rgb(54, 203, 54);
-        }
-
-        #block:not(.active) {
-            display: none;
+            border-color: green;
         }
     </style>
 </head>
-
 <body>
 
+    <ul>
+        <li>Раз</li>
+        <li>Два</li>
+        <li>Три</li>
+        <li>Четыре</li>
+    </ul>
 
-    <script>
+<script>
+    // ⊗jsPmOEED
+    // #1
+    let list = document.querySelector('ul');
 
+    list.addEventListener('click', function(event) {
+        event.target.textContent += '!'
+    })
 
-    </script>
+</script>
 </body>
-
 </html>

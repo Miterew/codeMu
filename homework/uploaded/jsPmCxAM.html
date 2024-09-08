@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="elem" value="hello">
+
+
+    <script>
+        "use strict";
+        // ⊗jsPmCxAM
+        let elem = document.querySelector('#elem');
+
+        function func(surname, name) {
+            console.log(this.value + ', ' + name + ' ' + surname);
+        }
+
+        func.apply(elem, ['Smit', 'John']); // тут должно вывести 'hello, John Smit'
+    </script>
+</body>
+
+</html>

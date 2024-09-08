@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="submit" id="start" value="start">
+    <input type="submit" id="stop" value="stop">
+
+    <script>
+        "use strict";
+        // ⊗jsPmTrSB
+        // #3
+
+        let start = document.querySelector('#start');
+        let stop = document.querySelector('#stop');
+
+        let timerId;
+
+        start.addEventListener('click',
+            function () {
+                timerId = setInterval(function () {
+                    let date = new Date;
+                    console.log(date.geStMinutes()
+                        + ' ' + date.getSeconds()
+                    );
+                }, 1000);
+            });
+
+        stop.addEventListener('click',
+            function () {
+                clearInterval(timerId);
+            });
+
+    </script>
+</body>
+
+</html>

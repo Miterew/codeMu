@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            border-color: rgb(170, 61, 61);
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="elem1" value="text1">
+    <input id="elem2" value="text2">
+    <input id="elem3" value="text3">
+
+
+    <script>
+        "use strict";
+        // ⊗jsPmCxCM
+        let elem1 = document.querySelector('#elem1');
+        let elem2 = document.querySelector('#elem2');
+        let elem3 = document.querySelector('#elem3');
+
+        function func() {
+            console.log(this.value);
+        }
+
+        func.call(elem1);
+        func.call(elem2);
+        func.call(elem3);
+    </script>
+</body>
+
+</html>
