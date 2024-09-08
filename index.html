@@ -45,15 +45,47 @@
 
 <body>
 
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
 
+    <button>add</button>
 
 
 
     <script>
-        // ⊗jsPmOEBUs
+        // ⊗jsPmOENEH
         // #1
+        let button = document.querySelector('button');
+        let list = document.querySelector('ul');
+        let items = list.querySelectorAll('li');
 
+        for (let item of items) {
+            item.addEventListener('click', function () {
+                this.textContent = this.textContent + '!';
+            });
+        }
 
+        button.addEventListener('click', function () {
+            let item = document.createElement('li');
+            item.textContent = 'item';
+            list.appendChild(item);
+        });
+
+        button.addEventListener('click', function () {
+            let item = document.createElement('li');
+            item.textContent = 'item';
+
+            item.addEventListener('click', function () { // обработчик клика 
+                this.textContent = this.textContent + '!';
+            });
+
+            list.appendChild(item);
+        });
 
     </script>
 </body>
