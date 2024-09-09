@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <ol id="parent"></ol>
+    <button>PUSH</button>
+
+    <script>
+        // ⊗jsPmMnIBE
+
+        let button = document.querySelector('button');
+        let parent = document.querySelector('#parent');
+
+        button.addEventListener('click', function() {
+            let newLi = document.createElement('li');
+            newLi.textContent = 'element';
+            
+            parent.appendChild(newLi);
+
+            newLi.addEventListener('click', function () {
+                this.textContent += '!';
+            });
+        })
+
+
+
+        
+    
+
+    </script>
+</body>
+
+</html>

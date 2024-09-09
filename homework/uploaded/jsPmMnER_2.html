@@ -19,18 +19,24 @@
 
 <body>
 
-    <div id="elem1">
-        <p id="elem2"></p>
-    </div>
+    <ul id="parent">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
 
+    <input type="submit" id="button">
 
     <script>
-        // jsPmMnECh_3
-        let elem1 = document.querySelector('#elem1');
-        let elem2 = document.querySelector('#elem2');
+        // ⊗jsPmMnER 2
 
-        console.log( elem1.contains(elem2) )
-        console.log( elem2.contains(elem1) )
+        let button = document.querySelector('#button');
+        let parent = document.querySelector('#parent');
+
+        button.addEventListener('click', function () {
+            parent.lastElementChild.remove();
+        });
+
     </script>
 </body>
 

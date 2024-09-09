@@ -19,18 +19,19 @@
 
 <body>
 
-    <div id="elem1">
-        <p id="elem2"></p>
-    </div>
+    <p id="p1">Текст</p>
+    <div id="d2">Текст</div>
 
 
     <script>
-        // jsPmMnECh_3
-        let elem1 = document.querySelector('#elem1');
-        let elem2 = document.querySelector('#elem2');
+        // jsPmMnECh_2
+        let p = document.querySelector('#p1');
+        let div = document.querySelector('#d2');
+    
+        console.log( p.matches('p'))
+        console.log( div.matches('p'))
 
-        console.log( elem1.contains(elem2) )
-        console.log( elem2.contains(elem1) )
+
     </script>
 </body>
 

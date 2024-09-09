@@ -18,19 +18,22 @@
 </head>
 
 <body>
-
-    <div id="elem1">
-        <p id="elem2"></p>
-    </div>
+    
+    <ul id="parent"></ul>
 
 
     <script>
-        // jsPmMnECh_3
-        let elem1 = document.querySelector('#elem1');
-        let elem2 = document.querySelector('#elem2');
+        // ⊗jsPmMnLEC
 
-        console.log( elem1.contains(elem2) )
-        console.log( elem2.contains(elem1) )
+        let parent = document.querySelector('#parent');
+
+        for(let i = 1; i <= 10; i++) {
+            let newLi = document.createElement('li');
+            newLi.textContent = i;
+
+            parent.appendChild(newLi);
+        }
+
     </script>
 </body>
 

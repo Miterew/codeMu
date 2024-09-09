@@ -19,18 +19,20 @@
 
 <body>
 
-    <div id="elem1">
-        <p id="elem2"></p>
+    <div id="elem" style="border: 1px solid red;">
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
     </div>
 
-
     <script>
-        // jsPmMnECh_3
-        let elem1 = document.querySelector('#elem1');
-        let elem2 = document.querySelector('#elem2');
+        // ⊗jsPmMnIAT
 
-        console.log( elem1.contains(elem2) )
-        console.log( elem2.contains(elem1) )
+        let elem = document.querySelector('#elem');
+
+        elem.insertAdjacentHTML('beforeBegin', '<div class="www"><p>text</p><p>text</p><input></div>')
+
+
     </script>
 </body>
 

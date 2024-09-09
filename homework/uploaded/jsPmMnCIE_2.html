@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <ol id="elem">
+
+    </ol>
+    <button id="button">click me</button>
+
+    <script>
+        // ⊗jsPmMnCIE #2
+        let button = document.querySelector('#button');
+        let parent = document.querySelector('#elem');
+        
+        let newItem = document.createElement('li');
+        newItem.textContent = 'item';
+
+        button.addEventListener('click', function() {
+            parent.appendChild(newItem);    
+        })
+
+
+    
+
+    </script>
+</body>
+
+</html>

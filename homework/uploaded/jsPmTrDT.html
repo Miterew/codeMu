@@ -16,21 +16,23 @@
         }
     </style>
 </head>
-
 <body>
-
-    <div id="elem1">
-        <p id="elem2"></p>
-    </div>
 
 
     <script>
-        // jsPmMnECh_3
-        let elem1 = document.querySelector('#elem1');
-        let elem2 = document.querySelector('#elem2');
+        // ⊗jsPmTrDT
+        let number = 0;
 
-        console.log( elem1.contains(elem2) )
-        console.log( elem2.contains(elem1) )
+        function timer() {
+            setTimeout(function() {
+                console.log(number);
+
+                number++;
+                timer()
+            }, Number(number + '000'))
+        }
+
+        timer()
     </script>
 </body>
 
