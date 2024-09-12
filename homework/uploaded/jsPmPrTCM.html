@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="table">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+    <button id="doubleBtn">Удвоить значения</button>
+
+
+    <script>
+        // ⊗jsPmPrTCM
+        let table = document.getElementById('table');
+        let button = document.getElementById('doubleBtn');
+        let tds = document.querySelectorAll('td');
+
+
+        button.addEventListener('click', function() {
+            for (let td of tds) {
+                td.textContent = Number(td.textContent) * 2;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

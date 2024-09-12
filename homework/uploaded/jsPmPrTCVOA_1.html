@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="table"></table>
+
+
+    <script>
+        // ⊗jsPmPrTCVOA_1
+        let employees = [
+            { name: 'employee1', age: 30, salary: 400 },
+            { name: 'employee2', age: 31, salary: 500 },
+            { name: 'employee3', age: 32, salary: 600 },
+        ];
+
+        let table = document.getElementById('table');
+
+        for (let employee of employees) {
+            let tr = document.createElement('tr');
+            table.appendChild(tr);
+
+            let td1 = document.createElement('td');
+            td1.textContent = employee.name;
+            tr.appendChild(td1);
+            
+            let td2 = document.createElement('td');
+            td2.textContent = employee.age;
+            tr.appendChild(td2);
+
+            let td3 = document.createElement('td');
+            td3.textContent = employee.salary;
+            tr.appendChild(td3);
+
+
+        }
+    </script>
+</body>
+
+</html>
