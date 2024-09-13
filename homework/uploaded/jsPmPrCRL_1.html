@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="parent">
+        <li>Раз</li>
+        <li>Два</li>
+        <li>Три</li>
+    </ul>
+
+
+    <script>
+        // ⊗jsPmPrCRL_1
+        let ul = document.getElementById('parent');
+        let lis = document.querySelectorAll('#parent li');
+
+        for (let li of lis) {
+            let link = document.createElement('a');
+            link.href = '';
+            link.textContent = 'Удалить';
+            li.appendChild(link);
+
+            li.addEventListener('click', function (event) {
+                event.preventDefault();
+                this.remove();
+            })
+        }
+        
+
+
+
+    </script>
+</body>
+
+</html>

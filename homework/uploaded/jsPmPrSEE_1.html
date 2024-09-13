@@ -25,12 +25,22 @@
 </head>
 
 <body>
-
+    <div id="parent">
+        <p id="elem">text</p>
+        <input id="input">
+    </div>
 
     <script>
-        // ⊗
+        // ⊗jsPmPrSEE_1
 
+        let par = document.querySelector('#elem');
+        let input = document.querySelector('#input');
 
+        input.value = par.textContent;
+
+        input.addEventListener('change', function () {
+            par.textContent = input.value;
+        })
     </script>
 </body>
 

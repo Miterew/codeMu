@@ -26,9 +26,22 @@
 
 <body>
 
+    <div id="parent">
+        <p id="elem">text</p>
+        <a href="" id="remove">remove</a>
+    </div>
+
 
     <script>
-        // ⊗
+        // ⊗jsPmPrRL
+        let elem = document.querySelector('#elem');
+        let remove = document.querySelector('#remove');
+
+        remove.addEventListener('click', function(event) {
+            event.preventDefault();
+            elem.remove();
+        })
+
 
 
     </script>

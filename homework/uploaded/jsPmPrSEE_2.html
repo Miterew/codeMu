@@ -25,11 +25,25 @@
 </head>
 
 <body>
-
+    <div id="parent">
+        <p id="elem">text</p>
+    </div>
 
     <script>
-        // ⊗
+        // ⊗jsPmPrSEE_2
+        let elem = document.querySelector('#elem');
 
+        elem.addEventListener('click', function() {
+            let input = document.createElement('input');
+
+            input.addEventListener('blur', function () {
+                elem.textContent = input.value;
+                this.remove();
+            });
+
+            elem.parentElement.appendChild(input);
+            
+        })
 
     </script>
 </body>
