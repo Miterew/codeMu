@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+    </div>
+
+    <script>
+        // ⊗jsPmPrRET_2
+
+        // Разве для этой задачи нужно было писать столько кода?
+        // Как будто я что-то не усвоил
+
+        let pars = document.querySelectorAll('p');
+
+        for (let par of pars) {         
+            // обертка тегов p в span
+            let txt = par.textContent; 
+            par.textContent = '';
+
+            par.insertAdjacentHTML('afterBegin', `<span>${txt}`); // есть способ получше?
+            par.insertAdjacentHTML('beforeEnd', '</span>'); 
+            // конец обертки
+
+
+            // добавляем удаление
+            let linkToRemove = document.createElement('a'); 
+            linkToRemove.textContent = '[X]';
+            linkToRemove.href = '#';
+
+            linkToRemove.addEventListener('click', function() {
+                par.remove();
+            });
+
+            par.appendChild(linkToRemove); 
+            // конец удаления
+        }
+        
+        // редактор содержимого span
+        let spans = document.querySelectorAll('span'); 
+        
+        for (let span of spans) {
+            let input = document.createElement('input');
+
+            span.addEventListener('click', function changer() {
+                this.removeEventListener('click', changer);
+
+                input.value = this.textContent;
+                this.textContent = '';
+
+                input.addEventListener('blur', function () {
+                    span.textContent = this.value;
+                    span.addEventListener('click', changer);
+                })
+                span.appendChild(input);
+            })
+        }
+        // конец редактора содержимого span
+
+    </script>
+</body>
+
+</html>

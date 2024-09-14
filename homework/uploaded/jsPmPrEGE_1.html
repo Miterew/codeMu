@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>Раз</li>
+        <li>Два</li>
+    </ul>
+
+    <script>
+        // ⊗jsPmPrEGE
+        let elems = document.querySelectorAll('li');
+
+        for (let p of elems) {
+            p.addEventListener('click', function func() {
+                let input = document.createElement('input');
+                input.value = p.textContent;
+                p.textContent = '';
+
+                input.addEventListener('blur', function () {
+                    p.textContent = this.value;
+                    this.remove();
+                    p.addEventListener('click', func);
+                })
+
+                this.appendChild(input);
+                p.removeEventListener('click', func);
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебник нов</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <p><span>text1</span></p>
+        <p><span>text2</span></p>
+        <p><span>text3</span></p>
+    </div>
+
+    <script>
+        // ⊗jsPmPrRET_1
+
+        let paragraphs = document.querySelectorAll('p');
+        let spans = document.querySelectorAll('span');
+
+        for (let par of paragraphs) {
+            let link = document.createElement('a');
+            link.href = '#';
+            link.textContent = '[X]';
+            par.appendChild(link);
+
+            link.addEventListener('click', function remPar() {
+                par.remove();
+            })
+        }
+
+        for (let span of spans) {
+            span.addEventListener('click', function func () {
+                span.removeEventListener('click', func);
+
+                let input = document.createElement('input');
+                input.value = span.textContent;
+                span.textContent = '';
+                span.appendChild(input);
+
+                input.addEventListener('blur', function () {
+                    span.textContent = this.value;
+                    span.addEventListener('click', func);
+                })
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -26,9 +26,25 @@
 
 <body>
 
+    <p>text1</p>
+    <p>text2</p>
+    <p>text3</p>
 
     <script>
-        // ⊗
+        // ⊗jsPmPrES
+
+        let pars = document.querySelectorAll('p');
+
+        for (let par of pars) { 
+            par.outerHTML = '<p> <span>' + par.innerHTML + '</span> </p>'; // обертка в span
+
+            let aLink = document.createElement('a');
+            aLink.href = '#';
+            aLink.textContent = '[X]';
+
+            par.appendChild(aLink);
+        }
+
 
 
     </script>
