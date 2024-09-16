@@ -29,44 +29,22 @@
         .hidden {
             display: none;
         }
-
-        .active {
-            background: red;
-        }
-
-        .color1 {
-            background: red;
-        }
-
-        .color2 {
-            background: green;
-        }
-
-        .color3 {
-            background: yellow;
-        }
     </style>
 </head>
 
 <body>
-    <ul>
-
-    </ul>
+    <p id="elem">text</p>
+    <input type="submit" id="show" value="show">
 
     <script>
 
-        let ul = document.querySelector('ul');
+        let elem = document.querySelector('#elem');
+        let show = document.querySelector('#show');
 
-        let arr = ['1', '2', '3', '4'];
 
-        for(let elem of arr) {
-            let li = document.createElement('li');
-            li.textContent = elem;
-
-            ul.appendChild(li);
-        }
-
-        
+        show.addEventListener('click', function () {
+            elem.classList.toggle('hidden');
+        });
     </script>
 </body>
 

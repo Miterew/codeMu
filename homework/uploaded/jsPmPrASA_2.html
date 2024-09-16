@@ -49,24 +49,38 @@
 </head>
 
 <body>
-    <ul>
-
-    </ul>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
 
     <script>
 
-        let ul = document.querySelector('ul');
+        let tds = document.querySelectorAll('td');
 
-        let arr = ['1', '2', '3', '4'];
+        let colors = ['color1', 'color2', 'color3'];
 
-        for(let elem of arr) {
-            let li = document.createElement('li');
-            li.textContent = elem;
+        let i = 0;
 
-            ul.appendChild(li);
+        for (let td of tds) {
+            td.addEventListener('click', function() {
+                td.classList.add(colors[i]);
+
+                i++;
+
+                if(i == colors.length) {
+                    i = 0;
+                }
+            })
+
+
         }
-
-        
     </script>
 </body>
 

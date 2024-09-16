@@ -33,40 +33,25 @@
         .active {
             background: red;
         }
-
-        .color1 {
-            background: red;
-        }
-
-        .color2 {
-            background: green;
-        }
-
-        .color3 {
-            background: yellow;
-        }
     </style>
 </head>
 
 <body>
-    <ul>
-
+    <ul id="par">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
     </ul>
 
     <script>
 
-        let ul = document.querySelector('ul');
-
-        let arr = ['1', '2', '3', '4'];
-
-        for(let elem of arr) {
-            let li = document.createElement('li');
-            li.textContent = elem;
-
-            ul.appendChild(li);
-        }
-
+        let lis = document.querySelectorAll('#par li');
         
+        for(let li of lis) {
+            li.addEventListener('click', function() {
+                this.classList.toggle('active');
+            })
+        }
     </script>
 </body>
 

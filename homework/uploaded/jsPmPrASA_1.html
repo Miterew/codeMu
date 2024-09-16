@@ -41,32 +41,39 @@
         .color2 {
             background: green;
         }
-
-        .color3 {
-            background: yellow;
-        }
     </style>
 </head>
 
 <body>
-    <ul>
-
-    </ul>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
 
     <script>
 
-        let ul = document.querySelector('ul');
+        let tds = document.querySelectorAll('td');
 
-        let arr = ['1', '2', '3', '4'];
+        let color = 'color1';
 
-        for(let elem of arr) {
-            let li = document.createElement('li');
-            li.textContent = elem;
+        for (let td of tds) {
+            td.addEventListener('click', function () {
+                
+                if(color == 'color1') {
+                    color = 'color2';
+                } else {
+                    color = 'color1'
+                }
 
-            ul.appendChild(li);
+                this.classList.add(color);
+            })
         }
-
-        
     </script>
 </body>
 
