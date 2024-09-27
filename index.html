@@ -54,38 +54,60 @@
     </ul>
 
     <script>
+        let arr = ['1', '2', '3', '4'];
 
         let ul = document.querySelector('ul');
 
-        let arr = ['1', '2', '3', '4'];
+        // Функция для создания элементов списка
+        function createListItems(arr) {
+            arr.forEach(item => {
+                let li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
 
-        for (let elem of arr) {
-            let li = document.createElement('li');
-            li.textContent = elem;
-            ul.appendChild(li);
+
+            });
+
+            editListElement();
         }
 
-        let lis = document.querySelectorAll('li');
-        for (let li of lis) {
-            li.addEventListener('click', function createElement() {
+        // Функция редактирования элементов списка
+        function editListElement() {
+            let lis = document.querySelectorAll('li');
 
-                let input = document.createElement('input');
-                input.value = this.textContent;
+            for (let li of lis) {
+                li.addEventListener('click', function selectLi() {
 
-                this.textContent = '';
-                this.appendChild(input);
+                    let newInput = document.createElement('input');
+                    this.appendChild(newInput);
 
+                    newInput.addEventListener('blur', function () {
+                        li.textContent = newInput.value;
+                    })
+                })
+            }
+        }
 
-                input.addEventListener('blur', function clickInput() {
-                    li.textContent = this.value;
-                    li.addEventListener('click', createElement);
-                }) 
+        // Функция создания нового элемента
+        function addClearListElement() {
+            let newLi = document.createElement('li');
+            ul.appendChild(newLi);
+            
+            let newInput = document.createElement('input');
+            newLi.appendChild(newInput);
 
-                li.removeEventListener('click', createElement);
+            newInput.addEventListener('blur', function() {
+                newLi.textContent = newInput.value;
+                addClearListElement()
             })
 
+
+            editListElement();
         }
 
+        // Вызываем функцию для рендеринга
+        createListItems(arr);
+        addClearListElement();
 
     </script>
 </body>
