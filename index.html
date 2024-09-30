@@ -58,56 +58,30 @@
 
         let ul = document.querySelector('ul');
 
-        // Функция для создания элементов списка
-        function createListItems(arr) {
-            arr.forEach(item => {
-                let li = document.createElement('li');
-                li.textContent = item;
-                ul.appendChild(li);
+        arr.forEach(elem => {
+            let li = document.createElement('li');
+            li.textContent = elem;
+            ul.appendChild(li);
 
+            li.addEventListener('click', function liClick() {
+                li.removeEventListener('click', liClick);
+                let input = document.createElement('input');
+                input.value = this.textContent;
+                this.appendChild(input);
+                input.focus();
 
-            });
-
-            editListElement();
-        }
-
-        // Функция редактирования элементов списка
-        function editListElement() {
-            let lis = document.querySelectorAll('li');
-
-            for (let li of lis) {
-                li.addEventListener('click', function selectLi() {
-
-                    let newInput = document.createElement('input');
-                    this.appendChild(newInput);
-
-                    newInput.addEventListener('blur', function () {
-                        li.textContent = newInput.value;
-                    })
+                input.addEventListener('blur', function () {
+                    li.textContent = input.value;
+                    li.addEventListener('click', liClick);
                 })
-            }
-        }
 
-        // Функция создания нового элемента
-        function addClearListElement() {
-            let newLi = document.createElement('li');
-            ul.appendChild(newLi);
-            
-            let newInput = document.createElement('input');
-            newLi.appendChild(newInput);
-
-            newInput.addEventListener('blur', function() {
-                newLi.textContent = newInput.value;
-                addClearListElement()
             })
 
 
-            editListElement();
-        }
+        })
 
-        // Вызываем функцию для рендеринга
-        createListItems(arr);
-        addClearListElement();
+
+
 
     </script>
 </body>
