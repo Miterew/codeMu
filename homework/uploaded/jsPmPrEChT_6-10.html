@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPmPrEChT 6-10</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color1 {
+            background: red;
+        }
+
+        .color2 {
+            background: green;
+        }
+
+        .color3 {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+    </table>
+
+    <script>
+        // ⊗jsPmPrEChT №6
+        let employees = [
+            { name: 'employee1', age: 30, salary: 400 },
+            { name: 'employee2', age: 31, salary: 500 },
+            { name: 'employee3', age: 32, salary: 600 },
+        ];
+
+        let table = document.querySelector('table');
+        let keys = Object.keys(employees[0]);
+
+
+        // Создаем заголовки
+        for (let i = 0; i <= employees.length - 1; i++) {
+            let title = document.createElement('th');
+            title.textContent = keys[i];
+            table.append(title);
+        }
+
+        // Заполняем элементами из объекта
+        employees.forEach(worker => {
+            let keys = Object.keys(worker);
+
+            let tr = document.createElement('tr');
+            table.append(tr);
+
+
+            keys.forEach(elem => {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+
+                let span = document.createElement('span');
+                span.textContent = worker[elem];
+                td.appendChild(span);
+            })
+
+
+            addButtonDeleteRow(tr)
+        })
+
+        // Добавляем возможность редактирования # 7
+        editElement()
+        function editElement() {
+            let tds = document.querySelectorAll('td');
+
+            tds.forEach(td => {
+
+                let span = td.querySelector('span');
+
+                td.addEventListener('click', function editTD() {
+                    td.removeEventListener('click', editTD);
+                    let input = document.createElement('input');
+                    input.value = span.textContent;
+                    span.textContent = '';
+                    td.appendChild(input);
+
+
+                    input.addEventListener('blur', function () {
+                        span.textContent = input.value;
+                        td.addEventListener('click', editTD);
+                        input.remove();
+                    })
+
+                })
+            })
+        }
+
+
+        // Добавляем в таблицу новую колонку со ссылкой на удаления ряда №8
+        function addButtonDeleteRow(tr) {
+
+            let deleteLink = document.createElement('td');
+
+            deleteLink.textContent = 'Delete';
+            tr.append(deleteLink);
+
+            deleteLink.addEventListener('click', function () {
+                tr.remove();
+            })
+
+        }
+
+
+        newElement();
+        function newElement() {
+            // Возможность добавления своих данных в таблицу
+            let newRow = document.createElement('tr');
+            table.appendChild(newRow);
+
+            // создаем инпуты для новых элементов
+            employees.forEach(person => {
+                let newTd = document.createElement('td');
+
+                let inputNewTd = document.createElement('input');
+                newTd.appendChild(inputNewTd);
+                newRow.appendChild(newTd);
+            })
+
+            // создаем кнопку для сохранения новых элементов
+
+            let buttonTd = document.createElement('td');
+            newRow.appendChild(buttonTd);
+
+            let button = document.createElement('button');
+            button.textContent = 'Save';
+            buttonTd.appendChild(button);
+
+
+            button.addEventListener('click', function () {
+                let tds = newRow.querySelectorAll('td');
+
+                for (let td of tds) {
+
+                    let input = td.querySelector('input');
+
+                    if (input) {
+                        let span = document.createElement('span');
+                        span.textContent = input.value;
+                        td.appendChild(span);
+                        input.remove();
+                        buttonTd.remove();
+                    }
+
+                    let span = td.querySelector('span');
+
+                    td.addEventListener('click', function editTD() {
+                        td.removeEventListener('click', editTD);
+                        let input = document.createElement('input');
+                        input.value = span.textContent;
+                        span.textContent = '';
+                        td.appendChild(input);
+
+
+                        input.addEventListener('blur', function () {
+                            span.textContent = input.value;
+                            td.addEventListener('click', editTD);
+                            input.remove();
+                        })
+
+                    })
+
+
+                }
+
+
+
+                newElement();
+            })
+
+            addButtonDeleteRow(newRow);
+        };
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

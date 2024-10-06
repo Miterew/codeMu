@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPmPrEChT 10-13</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color1 {
+            background: red;
+        }
+
+        .color2 {
+            background: green;
+        }
+
+        .color3 {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul></ul>
+
+    <script>
+        let employees = [
+            { name: 'employee1', age: 30, salary: 400 },
+            { name: 'employee2', age: 31, salary: 500 },
+            { name: 'employee3', age: 32, salary: 600 },
+        ];
+
+
+        const ul = document.querySelector('ul');
+
+        // Изначальное заполнение списка №10
+        employees.forEach(worker => {
+            let li = document.createElement('li');
+
+            let spanName = document.createElement('span');
+            spanName.textContent = worker.name;
+
+            let spanAge = document.createElement('span');
+            spanAge.textContent = worker.age;
+
+            let spanSalary = document.createElement('span');
+            spanSalary.textContent = worker.salary;
+
+
+            li.appendChild(spanName);
+            editSpanElement(spanName);
+            li.appendChild(document.createTextNode(' | ')); // разделитель между именем и возрастом
+
+            li.appendChild(spanAge);
+            editSpanElement(spanAge);
+            li.appendChild(document.createTextNode(' | ')); // разделитель между именем и возрастом
+
+            li.appendChild(spanSalary);
+            editSpanElement(spanSalary);
+
+            ul.appendChild(li);
+
+            deleteLiElement(li);
+        })
+
+        // Функция редактирования span-элемента
+        function editSpanElement(span) {
+            span.addEventListener('click', function editSpanElement() {
+                span.removeEventListener('click', editSpanElement);
+
+
+                let input = document.createElement('input');
+                input.value = span.textContent;
+
+
+                let saveValue = span.textContent;
+                span.textContent = '';
+                span.append(input);
+
+                input.focus();
+
+                input.addEventListener('blur', function () {
+                    if (input.value) {
+                        span.textContent = input.value;
+                    } else {
+                        span.textContent = saveValue;
+                    }
+                    input.remove();
+                    span.addEventListener('click', editSpanElement);
+                })
+
+            })
+
+        }
+
+        // Функция удаления li элемента
+        function deleteLiElement(li) {
+            let deleteButton = document.createElement('a');
+            deleteButton.textContent = 'Delete';
+
+            li.appendChild(document.createTextNode(' | ')); // разделитель между именем и возрастом
+            li.appendChild(deleteButton);
+
+            deleteButton.addEventListener('click', function () {
+                li.remove();
+            })
+        }
+
+
+        // функция удаления li элемента через кнопку
+        function deleteLiElementButton(li) {
+            let deleteButton = document.createElement('button');
+            deleteButton.setAttribute('id', 'deleteButton');
+            deleteButton.textContent = 'Delete';
+
+            li.appendChild(deleteButton);
+
+            deleteButton.addEventListener('click', function () {
+                li.remove();
+            })
+        }
+
+        // Создаем форму для добавления нового работника #13
+        newWorker()
+        function newWorker() {
+            let newWorkerLiElement = document.createElement('li');
+
+            let newWorkerNameInput = document.createElement('input');
+            newWorkerLiElement.appendChild(newWorkerNameInput);
+
+            let newWorkerAgeInput = document.createElement('input');
+            newWorkerLiElement.appendChild(newWorkerAgeInput);
+
+            let newWorkerSalaryInput = document.createElement('input');
+            newWorkerLiElement.appendChild(newWorkerSalaryInput);
+
+            let saveButton = document.createElement('button');
+            saveButton.textContent = 'Save';
+            newWorkerLiElement.appendChild(saveButton);
+
+            deleteLiElementButton(newWorkerLiElement)
+
+
+            saveButton.addEventListener('click', function saveInputValue() {
+                let spanName = document.createElement('span');
+                spanName.textContent = newWorkerNameInput.value;
+                newWorkerLiElement.replaceChild(spanName, newWorkerNameInput)
+                editSpanElement(spanName);
+
+                let spanAge = document.createElement('span');
+                spanAge.textContent = newWorkerAgeInput.value;
+                newWorkerLiElement.replaceChild(spanAge, newWorkerAgeInput);
+                editSpanElement(spanAge);
+
+
+                let spanSalary = document.createElement('span');
+                spanSalary.textContent = newWorkerSalaryInput.value;
+                newWorkerLiElement.replaceChild(spanSalary, newWorkerSalaryInput);
+                editSpanElement(spanSalary);
+
+
+                // Добавляем визуальные разделители (как подсказал GPT)
+                newWorkerLiElement.insertBefore(document.createTextNode(' | '), spanAge);
+                newWorkerLiElement.insertBefore(document.createTextNode(' | '), spanSalary);
+
+                saveButton.remove();
+                
+                deleteLiElement(newWorkerLiElement);
+
+                // удаляем кнопку удалить после нажатия сохранить
+                let deleteButton = document.getElementById('deleteButton');
+                deleteButton.remove();
+
+                newWorker();
+
+            })
+
+            ul.appendChild(newWorkerLiElement);
+        }
+    </script>
+</body>
+
+</html>

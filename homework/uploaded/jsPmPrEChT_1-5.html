@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPmPrEChT 1-5</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color1 {
+            background: red;
+        }
+
+        .color2 {
+            background: green;
+        }
+
+        .color3 {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+    </ul>
+
+    <script>
+        // ⊗jsPmPrEChT 1-5
+
+        let arr = ['1', '2', '3', '4'];
+        let ul = document.querySelector('ul');
+
+
+        arr.forEach(elem => {
+            let li = document.createElement('li');
+            ul.appendChild(li);
+
+            let span = document.createElement('span');
+            span.textContent = elem;
+            li.appendChild(span);
+
+
+            span.addEventListener('click', function () {
+                let input = document.createElement('input');
+                input.value = span.textContent;
+                span.insertAdjacentElement('afterEnd', input)
+
+                input.addEventListener('blur', function () {
+                    span.textContent = input.value;
+                    input.remove();
+                })
+
+
+            })
+            setCross(li);
+            deleteElementLi(li);
+        })
+        setNewLi();
+
+        function setNewLi() {
+            let newLi = document.createElement('li');  // Создаем новый ли
+            ul.appendChild(newLi);
+
+            let newSpan = document.createElement('span'); // В новом li новый span
+            newLi.appendChild(newSpan);
+
+            let newInput = document.createElement('input'); // В новом li новый input
+            newLi.appendChild(newInput);
+
+            newSpan.addEventListener('click', function () { // Нажали чтоб отредактировать новый эл-т
+
+                let input = document.createElement('input');
+                input.value = newSpan.textContent;
+                newSpan.insertAdjacentElement('afterEnd', input);
+
+                input.addEventListener('blur', function () {
+                    newSpan.textContent = input.value;
+                    input.remove();
+                })
+            })
+
+            newInput.addEventListener('blur', function () { // первичное заполнение нового li
+                if (newInput.value) {
+                    newSpan.textContent = newInput.value;
+                    newInput.remove();
+
+                    setNewLi();
+
+                    setCross(newLi);
+                    deleteElementLi(newLi);
+                }
+            });
+        }
+
+        function deleteElementLi(li) {
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Удалить';
+            li.appendChild(deleteButton);
+
+            deleteButton.addEventListener('click', function () {
+                li.remove();
+            })
+        };
+
+        function setCross(li) {
+            let isCrossFlag = false;
+            let thisSpan = li.querySelector('span');
+
+            let crossButton = document.createElement('button');
+            crossButton.textContent = 'Перечеркнуть';
+            li.appendChild(crossButton)
+
+            crossButton.addEventListener('click', function () {
+                if (!isCrossFlag) {
+                    let s = document.createElement('s');
+                    s.textContent = thisSpan.textContent;
+                    thisSpan.textContent = '';
+                    thisSpan.appendChild(s);
+
+                    isCrossFlag = true;
+                } else {
+                    let s = thisSpan.querySelector('s');
+                    thisSpan.textContent = s.textContent;
+                    s.remove();
+                    
+                    isCrossFlag = false;
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>
