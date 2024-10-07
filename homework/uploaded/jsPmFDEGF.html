@@ -39,10 +39,23 @@
         }
     </style>
 </head>
-<body>
 
+<body>
+    <p class="elem">1</p>
+    <p class="elem">2</p>
+    <p class="elem">3</p>
 
     <script>
+
+        function appendText(selector, text) {
+            let elems = document.querySelectorAll(selector);
+
+            elems.forEach(elem => {
+                elem.append(text);
+            })
+        }
+
+        appendText('.elem', 'text');
 
     </script>
 </body>

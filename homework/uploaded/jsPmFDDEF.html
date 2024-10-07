@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⊗jsPmFDEGF</title>
+    <title>⊗jsPmFDDEF</title>
 
     <style>
         .coloredRed {
@@ -39,10 +39,27 @@
         }
     </style>
 </head>
-<body>
 
+<body>
+    <p id="elem1">123</p>
+    <p id="elem2"></p>
 
     <script>
+        // №1
+        function setText(selector, text) {
+            let elem = document.querySelector(selector);
+            elem.textContent = text;
+        }
+
+        // №2
+        function setAttr(selector, attName, attValue) {
+            let elem = document.querySelector(selector);
+            elem.textContent = '123';
+
+            elem.setAttribute(attName, attValue);
+        }
+        setAttr('#elem1', 'class', 'newClass');
+
 
     </script>
 </body>
