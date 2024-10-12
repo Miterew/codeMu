@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPmMCLb</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p></p>
+
+    <script>
+        ;(function () {
+            let bestLib = {};
+
+            bestLib.avg1 = function(arr) {
+                return sum(arr, 1) / arr.length;
+            }
+
+            bestLib.avg2 = function(arr) {
+                return sum(arr, 2) / arr.length;
+            }
+
+            bestLib.avg3 = function(arr) {
+                return sum(arr, 3) / arr.length;
+            }
+
+            // вспомогательная функция
+            function sum(arr, pow) {
+                let res = 0;
+
+                for (let elem of arr) {
+                    res += elem ** pow;
+                }
+
+                return res;
+            }
+
+            window.bestLib = bestLib;
+        })();
+
+        console.log( bestLib.avg1([1, 2, 3]) )
+        console.log( bestLib.avg2([1, 2, 3]) )
+        console.log( bestLib.avg3([1, 2, 3]) )
+
+    </script>
+</body>
+
+</html>

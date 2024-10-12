@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPmMCPP</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="one">
+    <input id="two">
+    <input id="three">
+    <button>Click</button>
+
+    <script>
+
+        ; (function (input1, input2, input3, qButton) {
+
+            let inp1 = document.querySelector(input1);
+            let inp2 = document.querySelector(input2);
+            let inp3 = document.querySelector(input3);
+            let button = document.querySelector(qButton);
+
+            button.addEventListener('click', function () {
+                alert(Number(inp1.value) + Number(inp2.value) + Number(inp3.value));
+            });
+        })('#one', '#two', '#three', 'button');
+
+
+    </script>
+</body>
+
+</html>

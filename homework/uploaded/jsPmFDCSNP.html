@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPmFDCP</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p class="elem">1</p>
+    <p class="elem">2</p>
+    <p class="elem">3</p>
+    <p class="elem">4</p>
+    <p class="elem">5</p>
+
+    <script>
+        forEach('.elem', addSymb)
+
+        function addSymb(elem, index) {
+            elem.textContent = index + '. ' + elem.textContent;
+        }
+
+        function forEach(selector, func) {
+            let elems = document.querySelectorAll(selector);
+
+            for (let i = 0; i < elems.length; i++) {
+                func(elems[i], i);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

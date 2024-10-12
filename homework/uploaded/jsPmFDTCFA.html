@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPmFDTCFA</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="elem">
+    </div>
+
+    <script>
+        let div = document.querySelector('#elem');
+
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        let table = createTableByArr(arr);
+
+        div.appendChild(table);
+
+
+        function createTableByArr(arrs) {
+            let newTable = document.createElement('table');
+
+            for (let arr of arrs) {
+                let tr = document.createElement('tr');
+
+                for (let element of arr) {
+                    let td = document.createElement('td');
+                    td.textContent = element;
+                    tr.appendChild(td);
+                }
+
+                newTable.appendChild(tr);
+            }
+
+            return newTable;
+        }
+    </script>
+</body>
+
+</html>

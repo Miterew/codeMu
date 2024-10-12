@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPmFDPEAP</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="elem1">Раз</p>
+    <p id="elem2">Два</p>
+    <input id="input">
+    <script>
+        function setText(elem, text) {
+            elem.textContent = text;
+        }
+
+        function appendText(elem, text) {
+            elem.append(text);
+        }
+        
+        function setValue(input, text) {
+            input.value = text;
+        }
+
+        // №2
+        let elems = document.querySelectorAll('p');
+        
+        for(let i = 0; i < elems.length; i++) {
+            appendText(elems[i], ' !');
+        }
+
+        // №3
+        let inputMain = document.querySelector('#input'); 
+
+        setValue(inputMain, 'Введите текст здесь');
+
+
+
+
+    </script>
+</body>
+
+</html>

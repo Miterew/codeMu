@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPmMCVFEO</title>
+
+    <style>
+        .coloredRed {
+            color: rgb(249, 25, 25)
+        }
+
+        .coloredGreen {
+            color: rgb(54, 203, 54);
+        }
+
+        .decoration {
+            text-decoration: line-through;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            background: red;
+        }
+
+        .color {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p></p>
+
+    <script>
+
+        ; (function () {
+            let module = {};
+
+            module.str1 = 'переменная модуля';
+            module.str2 = 'переменная модуля';
+            let str3 = 'переменная модуля';
+
+            module.func1 = function () {
+                alert('функция модуля 1');
+            }
+            module.func2 = function () {
+                alert('функция модуля 2');
+            }
+            module.func3 = function () {
+                alert('функция модуля 3');
+            }
+            module.func4 = function () {
+                alert('функция модуля 4');
+            }
+            module.func5 = function () {
+                alert('функция модуля 5');
+            }
+
+            window.module = module;
+        })();
+
+        console.log(module.str1);
+        console.log(module.str2);
+        console.log(module.str3); // должен быть undef
+
+        module.func1();
+        module.func2();
+        module.func3();
+        module.func4();
+        module.func5();
+  
+    </script>
+</body>
+
+</html>
