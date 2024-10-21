@@ -1,20 +1,18 @@
 "use strict"
 
-const form = document.querySelector('squarePS');
-const input = document.querySelector('#side');
+const sideA = document.querySelector('#side');
+const sideB = document.querySelector('#side2');
 const button = document.querySelector('button');
 
-button.addEventListener('click', function getSandP() {
+button.addEventListener('click', function RectPS() {
+    let s = document.createElement('p');
+    s.textContent = 'Площадь: ' + sideA.value * sideB.value;
+    button.insertAdjacentElement('beforeBegin', s);
 
-    let par = document.createElement('p');
-    let perimeter = input.value * 4;
-    par.textContent = 'Периметр: ' + perimeter;
-    button.insertAdjacentElement('beforeBegin', par);
 
-    let par2 = document.createElement('p');
-    let square = input.value ** 2;
-    par2.textContent = 'Площадь: ' + square;
-    button.insertAdjacentElement('beforeBegin', par2);
+    let p = document.createElement('p');
+    p.textContent = 'Периметр: ' + (Number(sideA.value) + Number(sideB.value)) * 2;
+    button.insertAdjacentElement('beforeBegin', p);
 
-    button.removeEventListener('click', getSandP);
-})
+    button.removeEventListener('click', RectPS);
+});
