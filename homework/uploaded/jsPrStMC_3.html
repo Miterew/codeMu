@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPmMCLb №2</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Нахождение делителей числа</p>
+
+    <label for="input">Введите число</label>
+    <input id="input" />
+    <br />
+
+    <button type="submit">Отправить</button>
+
+    <script>
+        const input = document.querySelector('#input');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', function getDividers() {
+
+            let number = Number(input.value);
+            let arr = [];
+
+            for (let i = 1; i <= number; i++) {
+                if (number % i === 0) {
+                    arr.push(i);
+                }
+            }
+
+            console.log(arr);
+        });
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
