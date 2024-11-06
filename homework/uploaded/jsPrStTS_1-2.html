@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Поиск тегов ⊗jsPrStTS</title>
     <style>
         td {
             width: 50px;
@@ -30,10 +30,24 @@
 </head>
 
 <body>
-
+    <h3>Введите тег:</h3>
+    <input type="text">
+    <p></p>
 
     <script>
+        const input = document.querySelector('input');
+        const par = document.querySelector('p');
 
+        let tagBase = {
+            'a': 'Тег создает ссылку',
+            'br': 'Переводит тег на новую строку',
+        }
+
+        input.addEventListener('keyup', event => {
+            if (event.code === 'Enter') {
+                par.textContent = tagBase[input.value];
+            }
+        })
 
     </script>
     <script src="script.js"></script>
