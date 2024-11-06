@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск исторических событий ⊗jsPrStHS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #parent {
+            margin: 0 auto;
+            width: 600px;
+        }
+
+        #input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        #table {
+            width: 100%;
+        }
+
+        #table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+
+        .colorGreen {
+            background-color: rgb(174, 216, 174);
+            font-weight: 800;
+        }
+
+        .colorRed {
+            background-color: red;
+        }
+
+        .hidden {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <input id="input" placeholder="введите год и нажмите Enter">
+        <table id="table"></table>
+    </div>
+
+    <script>
+        const input = document.querySelector('#input');
+        const table = document.querySelector('#table');
+
+        let dataBase = {
+            "2000": [
+                { date: "20.01.2000", title: "событие 1", description: "описание события 1" },
+                { date: "21.01.2000", title: "событие 2", description: "описание события 2" },
+            ],
+            "2001": [
+                { date: "10.05.2001", title: "событие 3", description: "описание события 3" },
+                { date: "11.05.2001", title: "событие 4", description: "описание события 4" },
+                { date: "12.05.2001", title: "событие 5", description: "описание события 5" },
+            ]
+        }
+
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+
+                table.innerHTML = '';
+
+                for (let i = 0; i < dataBase[input.value].length; i++) {
+                    let newTr = document.createElement('tr');
+                    
+                    let dateTd = document.createElement('td');
+                    dateTd.textContent = dataBase[input.value][i]['date'];
+                    newTr.appendChild(dateTd);
+
+                    let titleTd = document.createElement('td');
+                    titleTd.textContent = dataBase[input.value][i]['title'];
+                    newTr.appendChild(titleTd);
+
+                    let descriptionTd = document.createElement('td');
+                    descriptionTd.textContent = dataBase[input.value][i]['description'];
+                    newTr.appendChild(descriptionTd);
+
+                    table.appendChild(newTr);
+                }
+
+
+
+
+            }
+        })
+
+
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
