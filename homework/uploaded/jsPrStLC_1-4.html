@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Линейный календарь ⊗jsPrStLC № 4</title>
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .wrapper_row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 5px;
+        }
+
+        .colorGreen {
+            background-color: rgb(174, 216, 174);
+            font-weight: 800;
+        }
+
+        .colorRed {
+            background-color: red;
+        }
+
+        .hidden {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1></h1>
+
+        <div class="wrapper_row">
+            <p id="before"><</p>
+                    <h3 id="timer"></h3>
+                    <p id="after">></p>
+        </div>
+
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+
+        const ul = document.querySelector('ul');
+        let now = new Date();
+
+        showCalendar();
+        function showCalendar() {
+
+            let ultDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+            for (let i = 1; i <= ultDayOfMonth.getDate(); i++) {
+                let newli = document.createElement('li');
+                newli.textContent = i;
+                ul.appendChild(newli);
+            }
+
+            const h1 = document.querySelector('h1');
+            h1.textContent = now.getFullYear();
+
+            const h3 = document.querySelector('h3');
+            h3.textContent += getMonthWord(now.getMonth());
+
+            let lis = document.querySelectorAll('li');
+
+            for (let li of lis) {
+                if (li.textContent == now.getDate() &&
+                 h3.textContent ==  getMonthWord(now.getMonth()) &&
+                 h1.textContent ==  now.getFullYear() 
+                ) {
+                    li.classList.add('colorGreen')
+                }
+            }
+        };
+
+
+        const afterArrow = document.querySelector('#after');
+        const beforeArrow = document.querySelector('#before');
+
+        let nextMonthCount = 0;
+        afterArrow.addEventListener('click', function setNextMonth() {
+
+            const wrapper = document.querySelector('.wrapper');
+
+            nextMonthCount++;
+            let ultDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1 + nextMonthCount, 0);
+
+            ul.innerHTML = '';
+            //
+
+            for (let i = 1; i <= ultDayOfMonth.getDate(); i++) {
+                let newli = document.createElement('li');
+                newli.textContent = i;
+                ul.appendChild(newli);
+            }
+
+
+
+            const h1 = document.querySelector('h1');
+            h1.textContent = ultDayOfMonth.getFullYear();
+
+            const h3 = document.querySelector('h3');
+            h3.textContent = getMonthWord(ultDayOfMonth.getMonth());
+
+
+            let lis = document.querySelectorAll('li');
+
+            for (let li of lis) {
+                if (li.textContent == now.getDate() &&
+                 h3.textContent ==  getMonthWord(now.getMonth()) &&
+                 h1.textContent ==  now.getFullYear() 
+                ) {
+                    li.classList.add('colorGreen')
+                }
+            }
+        });
+
+
+
+        let previousMonthCount = 0;
+        beforeArrow.addEventListener('click', function setPreviousMonth() {
+
+            const wrapper = document.querySelector('.wrapper');
+
+            nextMonthCount--;
+            let ultDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1 + nextMonthCount, 0);
+
+            ul.innerHTML = '';
+            //
+
+            for (let i = 1; i <= ultDayOfMonth.getDate(); i++) {
+                let newli = document.createElement('li');
+                newli.textContent = i;
+                ul.appendChild(newli);
+            }
+
+            let lis = document.querySelectorAll('li');
+
+            const h1 = document.querySelector('h1');
+            h1.textContent = ultDayOfMonth.getFullYear();
+
+            const h3 = document.querySelector('h3');
+            h3.textContent = getMonthWord(ultDayOfMonth.getMonth());
+
+            for (let li of lis) {
+                if (li.textContent == now.getDate() &&
+                 h3.textContent ==  getMonthWord(now.getMonth()) &&
+                 h1.textContent ==  now.getFullYear() 
+                ) {
+                    li.classList.add('colorGreen')
+                }
+            }
+        });
+
+
+        function getMonthWord(num) {
+            let months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сен', 'Окт', 'Ноябрь', 'Декабрь'];
+            return months[num];
+        };
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

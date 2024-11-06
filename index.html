@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⊗jsPmMCLb №6</title>
+    <title></title>
     <style>
+
+
         td {
             width: 50px;
             height: 50px;
@@ -13,8 +15,10 @@
             text-align: center;
         }
 
+
         .colorGreen {
-            background-color: green;
+            background-color: rgb(174, 216, 174);
+            font-weight: 800;
         }
 
         .colorRed {
@@ -22,233 +26,18 @@
         }
 
         .hidden {
-            display: none;
+            border: 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>Игра угадай ячейку</h1>
-    <h3 id="timer"></h3>
-    <table>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
 
 
     <script>
-        let tds = document.querySelectorAll('td');
-
-        setNewShips();
-
-        function setNewShips() {
-            let shipsIndexArr = [];
-
-            while (shipsIndexArr.length < 10) {
-                let newRandomNum = randomNum(1, 100);
-
-                if (!shipsIndexArr.includes(newRandomNum)) {
-                    shipsIndexArr.push(newRandomNum);
-                }
-            }
-
-            for (let i of shipsIndexArr) {
-                tds[i].classList.add('ship');
-            }
-
-        }
-
-        let timeForGameInSec = 40;
-        const timerPar = document.querySelector('#timer');
-        timerPar.textContent = timeForGameInSec + ' секунд';
-
-        let firstStartFlag = true;
-        let findedShipsCount = 0;
-
-        for (let td of tds) {
-            td.addEventListener('click', function checkShip() {
-                td.removeEventListener('click', checkShip);
-
-                // защита таймера от дублирования флагом первого старта
-                if (firstStartFlag) {
-                    startGameTimer();
-                    firstStartFlag = false;
-                };
-
-                // ищем отмеченные компом ячейки
-                if (this.classList.contains('ship')) {
-                    this.classList.replace('ship', 'colorGreen');
-
-                    // если 10 ячеек найдено, выводим алерт с поздравлением
-                    findedShipsCount++;
-
-                    if (findedShipsCount == 10) {
-                        setTimeout(function congratulation() {
-                            alert('Вы выйграли!');
-                            window.location.reload();
-                        }, 100);
-                    };
-                } else {
-                    this.classList.add('colorRed');
-                };
-            })
 
 
-        }
 
-        function startGameTimer() {
-            let timerID = setInterval(function timerEndGame() {
-                timeForGameInSec--;
-                timerPar.textContent = timeForGameInSec + ' секунд';
-
-
-                if (timeForGameInSec <= 0 && findedShipsCount < 10) {
-                    setTimeout(function congratulation() {
-                        alert('Вы не успели!');
-                        window.location.reload();
-                    }, 100);
-                }
-            }, 1000);
-
-
-        }
-
-
-        function randomNum(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-
-        // Проверка
-        let ships = document.querySelectorAll('ship');
-
-        console.log(ships);
     </script>
     <script src="script.js"></script>
 </body>

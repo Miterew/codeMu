@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экранная клавиатура</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .colorGreen {
+            background-color: green;
+        }
+
+        .colorRed {
+            background-color: red;
+        }
+
+        .hidden {
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Экранная клавиатура</h1>
+    <h3 id="timer"></h3>
+
+    <table>
+        <tr>
+            <td>Esc</td>
+            <td>F1</td>
+            <td>F2</td>
+            <td>F3</td>
+            <td>F4</td>
+            <td>F5</td>
+            <td>F6</td>
+            <td>F7</td>
+            <td>F8</td>
+            <td>F9</td>
+            <td>F10</td>
+            <td>F11</td>
+            <td>F12</td>
+            <td>Print</td>
+            <td>ScrLk</td>
+            <td>Pause</td>
+        </tr>
+        <tr>
+            <td>~</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>0</td>
+            <td>-</td>
+            <td>=</td>
+            <td>Backspace</td>
+            <td>Insert</td>
+            <td>Home</td>
+            <td>Page up</td>
+            <td>Num</td>
+            <td>/</td>
+            <td>*</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Tab</td>
+            <td>q</td>
+            <td>w</td>
+            <td>e</td>
+            <td>r</td>
+            <td>t</td>
+            <td>y</td>
+            <td>u</td>
+            <td>i</td>
+            <td>o</td>
+            <td>p</td>
+            <td>[</td>
+            <td>]</td>
+            <td>\</td>
+            <td>Del</td>
+            <td>End</td>
+            <td>Page down</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td rowspan="2">+</td>
+        </tr>
+        <tr>
+            <td id='caps'>Caps Lock</td>
+            <td>a</td>
+            <td>s</td>
+            <td>d</td>
+            <td>f</td>
+            <td>g</td>
+            <td>h</td>
+            <td>j</td>
+            <td>k</td>
+            <td>l</td>
+            <td>;</td>
+            <td>'</td>
+            <td colspan="2">Enter</td>
+            <td class="hidden"></td>
+            <td class="hidden"></td>
+            <td class="hidden"></td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Shift</td>
+            <td>z</td>
+            <td>x</td>
+            <td>c</td>
+            <td>v</td>
+            <td>b</td>
+            <td>n</td>
+            <td>m</td>
+            <td>,</td>
+            <td>.</td>
+            <td>/</td>
+            <td colspan="3">rShift</td>
+            <td class="hidden"></td>
+            <td>↑</td>
+            <td class="hidden"></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td rowspan="2">Enter</td>
+        </tr>
+        <tr>
+            <td>Ctrl</td>
+            <td>Win</td>
+            <td>Alt</td>
+            <td colspan="7">Space</td>
+            <td>rAlt</td>
+            <td>Fn</td>
+            <td>Copy</td>
+            <td>rCtrl</td>
+            <td>←</td>
+            <td>↓</td>
+            <td>→</td>
+            <td>0</td>
+            <td>.</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br>
+    <textarea rows="4" cols="100"></textarea>
+
+
+    <script>
+        let tds = document.querySelectorAll('td');
+        let textarea = document.querySelector('textarea');
+        const capsLock = document.querySelector('#caps');
+
+        for(let td of tds) {
+            td.addEventListener('click', function() {
+                // если нажата клавиша капс, красим
+                if (this.textContent === 'Caps Lock') {
+                    this.classList.toggle('colorGreen');
+                } else { // если нажат не капс, то исполняем следующее
+                    if(capsLock.classList.contains('colorGreen')) { // если капс нажат
+                        textarea.textContent += td.textContent.toUpperCase(); // печатаем заглавные
+                    } else { // если капс не нажат
+                        textarea.textContent += td.textContent; // печатаем строчные
+                    }
+                }
+            })
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
