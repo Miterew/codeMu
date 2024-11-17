@@ -4,103 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт предсказаний ⊗jsPrStPrd</title>
+    <title></title>
     <style>
-        #parent {
-            text-align: center;
-        }
-
-        #parent>* {
-            margin-bottom: 10px;
-        }
-
-        #timer {
-            font-size: 18px;
-        }
-
-        #text {
-            font-size: 17px;
-            font-style: italic;
-        }
-
-        button {
-            padding: 5px 10px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        button:not(.active) {
-            display: none;
-        }
-
-        .redTextColor {
-            color: red;
-        }
-
-        .greenTextColor {
-            color: green;
-        }
+ 
     </style>
 </head>
 
 <body>
-    <div id="parent">
-        <div id="timer">?</div>
-        <div id="text"></div>
-        <button id="start" class="active">узнать свою судьбу</button>
-        <button id="stop">получить предсказание</button>
-    </div>
+
 
 
     <script>
-        const timerDiv = document.querySelector('#timer');
-        const textDiv = document.querySelector('#text');
-        const startButton = document.querySelector('#start');
-        const stopButton = document.querySelector('#stop');
-
-        let timerId;
-        startButton.addEventListener('click', function () {
-            this.classList.remove('active');
-            stopButton.classList.add('active');
-
-            timerId = setInterval(() => {
-                timerDiv.textContent = getRandomNum(1, 9);
-            }, 100)
-
-        });
-
-        stopButton.addEventListener('click', function () {
-            this.classList.remove('active');
-            clearInterval(timerId);
-            let indexPredictions = Number(timerDiv.textContent);
-            textDiv.textContent = predictions[indexPredictions];
-            
-            if(indexPredictions % 2 === 0) {
-                textDiv.classList.add('redTextColor');
-            } else {
-                textDiv.classList.add('greenTextColor');
-            }
-        });
-
-        let predictions = [
-            [],
-            ['Сегодня всё сложится удачно, если будете спокойны.'],
-            ['Сегодня лучше не выходите из дома.'],
-            ['Возможно, вы встретите интересного человека.'],
-            ['Старайтесь избегать конфликтов сегодня.'],
-            ['Сегодня отличный день для новых начинаний.'],
-            ['Вам стоит обратить внимание на своё здоровье.'],
-            ['Сегодня хороший день для решения старых задач.'],
-            ['Избегайте спешки, чтобы не допустить ошибок.'],
-            ['Вас ждёт приятный сюрприз во второй половине дня.'],
-            ['Лучше не принимать важных решений, звёзды не на вашей стороне.']
-        ];
-
-
-        function getRandomNum(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
 
 
     </script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автодополнение ⊗jsPrStAuc</title>
+    <style>
+        #parent {
+            position: relative;
+        }
+
+        #elem {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        #parent ul {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            background-color: white;
+        }
+
+        #parent li {
+            border: 1px solid gray;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        #parent li:hover {
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="parent">
+        <input id="elem">
+        <ul id="list"></ul>
+    </div>
+    Введите "Клиент"
+
+    <script>
+        let input = document.querySelector('#elem');
+        let clients = ['Клиент 1', 'Кляча', 'Крышка', 'Клюква'];
+        let ul = document.querySelector('#list');
+
+        input.addEventListener('input', function () {
+            ul.innerHTML = '';
+            let checkSymb = clients.filter(elem => {
+                if (elem.startsWith(`${input.value}`)) {
+                    let newLis = [];
+
+                    newLis.push(elem);
+                    for (let newLi of newLis) {
+                        newLiElement = document.createElement('li');
+                        newLiElement.textContent = elem;
+                        ul.appendChild(newLiElement);
+                    }
+                }
+
+
+            })
+
+            let lis = document.querySelectorAll('li');
+
+            for (let li of lis) {
+                li.addEventListener('click', function () {
+                    input.value = li.textContent;
+                    ul.innerHTML = '';
+                });
+            }
+
+        });
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
