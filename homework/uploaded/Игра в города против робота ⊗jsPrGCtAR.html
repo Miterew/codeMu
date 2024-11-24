@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра в города против робота ⊗jsPrGCtAR</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p>Ожидаем начала игры</p>
+    <input id="field">
+    <div id="message"></div>
+
+
+    <script>
+        let par = document.querySelector('p');
+        let field = document.querySelector('#field');
+        let message = document.querySelector('#message');
+        let usedCitiesArr = ['а',];
+
+        // Имена игороков
+        const players = ['Влад', 'Бот'];
+        let currentPlayer = 0;
+
+        // Задание 3
+        let allCities = ['апшеронск', 'краснодар', 'рязань', 'новороссийск', 'калуга'];
+
+        // Первое слово
+        if (usedCitiesArr.length === 1) {
+            message.textContent = 'Первый город всегда на букву "а"';
+        };
+
+        par.textContent = 'Ходит игрок: ' + players[currentPlayer];
+
+
+
+        field.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+
+
+
+                let inputFirstLetter = field.value.slice(0, 1);
+
+
+                if (getUsedCitiesLastLetter(usedCitiesArr) === inputFirstLetter) {
+
+                    if (isCityUsed(field.value) === false) {
+                        usedCitiesArr.push(field.value);
+
+                        message.textContent = 'Записал ' + field.value + '! Следующий игрок называет город на букву :' + getUsedCitiesLastLetter(usedCitiesArr);
+                        field.value = '';
+
+                        // указываем на следующего игрока
+                        par.textContent = 'Ходит игрок: ' + players[setNextPlayer(currentPlayer, players)];
+
+
+
+                    } else {
+
+                        message.textContent = 'Город ' + field.value + ' уже называли ранее. Назовите другой город на букву: ' + inputFirstLetter;
+                        field.value = '';
+                    };
+
+                } else {
+                    message.textContent =
+                        'Не правильная первая буква! Должно начинаться с буквы: ' + getUsedCitiesLastLetter(usedCitiesArr);
+                };
+
+
+                // Последний в списке игроков всегда Бот, если ход бота, выполняем функцию
+                if (currentPlayer == players.length - 1) {
+                    botMakeMove();
+                }
+            }
+
+        });
+
+        // проверяем назывался ли город ранее | true назывался | false не назывался
+        function isCityUsed(citi) {
+            let result = false;
+
+            let res = usedCitiesArr.find(function (elem) {
+                if (citi === elem) {
+                    result = true;
+                };
+            })
+
+            return result;
+        };
+
+        function getUsedCitiesLastLetter(arr) {
+            return arr[arr.length - 1].slice(-1);
+        }
+
+        function setNextPlayer(current, arr) {
+            let maxPlayers = arr.length - 1;
+
+            if (current === maxPlayers) {
+                currentPlayer = 0;
+
+                return currentPlayer;
+            } else if (current != maxPlayers) {
+                ++currentPlayer;
+
+                return currentPlayer;
+            }
+        }
+
+        // бот вставляет в инпут город на нужную букву из массива, если он не был назван ранее
+        function botMakeMove() {
+
+            let filtredByFirstLetterArr = allCities.filter(function (elem) {
+                if (elem.slice(0, 1) === getUsedCitiesLastLetter(usedCitiesArr)) {
+                    return true;
+                } else {
+                    return false;
+                };
+            });
+
+            for (let i = 0; i <= filtredByFirstLetterArr.length - 1; i++) {
+                if (!isCityUsed(filtredByFirstLetterArr[i])) {
+                    field.value = filtredByFirstLetterArr[i];
+                    break;
+                }
+            }
+
+            if (field.value == '') {
+                alert('Вы выйграли! Бот больше не знает городов на эту букву.')
+                par.textContent = 'Бот проиграл';
+                message.textContent = '';
+                field.setAttribute('disabled', 'disabled');
+            } 
+        };
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
