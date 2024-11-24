@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест с вопросами и ответами в объекте ⊗jsPrTstOQA</title>
+    <style>
+        .right {
+            border: 1px solid green;
+        }
+
+        .wrong {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="test"></div><br>
+    <button id="button">Проверить ответы</button>
+
+    <script>
+        let div = document.querySelector('#test');
+        let button = document.querySelector('#button');
+
+        let questions = {
+            'Вопрос 1?': 'ответ 1',
+            'Вопрос 2?': 'ответ 2',
+            'Вопрос 3?': 'ответ 3',
+        }
+
+        for (let question of Object.keys(questions)) {
+            let newDiv = document.createElement('div');
+
+            let par = document.createElement('p');
+            par.textContent = question;
+            newDiv.appendChild(par);
+
+            let input = document.createElement('input');
+            newDiv.appendChild(input);
+
+            div.appendChild(newDiv);
+        }
+
+        let inputs = document.querySelectorAll('input');
+        let answers = Object.values(questions);
+
+        button.addEventListener('click', function () {
+            for (let input of inputs) {
+                input.classList.remove('wrong', 'right');
+            };
+
+
+            for (let i = 0; i < answers.length; i++) {
+                if (inputs[i].value === answers[i]) {
+                    inputs[i].classList.add('right');
+                } else {
+                    inputs[i].classList.add('wrong');
+                }
+
+            }
+        })
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
