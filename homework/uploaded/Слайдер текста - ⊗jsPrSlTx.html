@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content="width=device-width, initial-scale=1.0">
+    <title>Слайдер текста - ⊗jsPrSlTx</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider"></div>
+
+    <script>
+        // https://code.mu/ru/javascript/book/practice/slider/text/
+        let texts = ['text1', 'text2', 'text3'];
+
+        let slider = document.querySelector('#slider');
+        let counter = 0;
+        slider.textContent = texts[counter];
+
+        setInterval(function () {
+            if (counter === 3) {
+                counter = 0;
+            }
+            slider.textContent = texts[counter];
+            counter++;
+        }, 1000);
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

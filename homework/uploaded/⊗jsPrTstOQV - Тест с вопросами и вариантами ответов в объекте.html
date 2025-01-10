@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPrTstOQV</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="test"></div>
+    <button id="button">проверить ответы</button>
+
+    <script>
+        // https://code.mu/ru/javascript/book/practice/test/object-questions-variants/
+
+        let questions = [
+            {
+                text: 'вопрос 1?',
+                right: 0,
+                variants: [
+                    'вариант 1',
+                    'вариант 2',
+                    'вариант 3'
+                ]
+            },
+            {
+                text: 'вопрос 2?',
+                right: 1,
+                variants: [
+                    'вариант 4',
+                    'вариант 5',
+                    'вариант 6'
+                ]
+            },
+            {
+                text: 'вопрос 3?',
+                right: 2,
+                variants: [
+                    'вариант 7',
+                    'вариант 8',
+                    'вариант 9'
+                ]
+            },
+        ];
+
+        let mainDiv = document.querySelector('#test');
+
+        questions.forEach((element, index) => {
+            let questionDiv = document.createElement('div');
+
+            let question = document.createElement('p');
+            question.textContent = element.text;
+            questionDiv.appendChild(question);
+            mainDiv.appendChild(questionDiv);
+
+            element.variants.forEach((elementVariant, indexVar) => {
+                let firstLabel = document.createElement('label');
+                
+
+                let inputFirstLabel = document.createElement('input');
+                inputFirstLabel.type = 'radio';
+                inputFirstLabel.name = index;
+                firstLabel.appendChild(inputFirstLabel);
+
+                firstLabel.append(elementVariant);
+                mainDiv.appendChild(firstLabel);
+            })
+        });
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

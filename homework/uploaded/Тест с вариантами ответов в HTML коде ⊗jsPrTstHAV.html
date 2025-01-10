@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⊗jsPrTstHAV</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="test">
+        <div>
+            <p>вопрос 1?</p>
+
+            <label>
+                <input type="radio" name="1" data-right>
+                вариант 1
+            </label>
+            <label>
+                <input type="radio" name="1">
+                вариант 2
+            </label>
+            <label>
+                <input type="radio" name="1">
+                вариант 3
+            </label>
+        </div>
+        <div>
+            <p>вопрос 2?</p>
+
+            <label>
+                <input type="radio" name="2">
+                вариант 1
+            </label>
+            <label>
+                <input type="radio" name="2" data-right>
+                вариант 2
+            </label>
+            <label>
+                <input type="radio" name="2">
+                вариант 3
+            </label>
+        </div>
+        <div>
+            <p>вопрос 3?</p>
+
+            <label>
+                <input type="radio" name="3">
+                вариант 1
+            </label>
+            <label>
+                <input type="radio" name="3">
+                вариант 2
+            </label>
+            <label>
+                <input type="radio" name="3" data-right>
+                вариант 3
+            </label>
+        </div>
+    </div>
+    <br>
+    <button>Кнопка</button>
+    <script>
+        let labels = document.querySelectorAll('label');
+
+        // Задача 1
+        // Вариант кода, в котором проверка проводится по нажатию на ответ
+        // for(let label of labels) {
+        //     let input = label.querySelector('input');
+
+        //     input.addEventListener('click', function checkAnswer() {
+        //         if(this.hasAttribute('data-right')) {
+        //             alert('Верно')
+        //         }
+        //     })
+        // }
+
+
+        // Задача 2
+        // Вариант кода, в котором проверка ответов выполняется по нажатию на кнопку
+        let button = document.querySelector('button');
+
+        for (let label of labels) {
+
+            let input = label.querySelector('input');
+
+            button.addEventListener('click', function checkAnswerButton() {
+                label.classList.remove('colorGreen', 'colorRed');
+
+                // правильную кнопку красим в зеленый, неправильную в красный
+                if (input.hasAttribute('data-right') && input.checked) {
+                    label.classList.add('colorGreen');
+                } else if (input.checked && input.hasAttribute('data-right') == false) {
+                    label.classList.add('colorRed');
+                }
+
+
+            });
+
+        };
+
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

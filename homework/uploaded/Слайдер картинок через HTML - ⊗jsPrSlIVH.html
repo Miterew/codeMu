@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content="width=device-width, initial-scale=1.0">
+    <title>Слайдер картинок через HTML - ⊗jsPrSlIVH</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="slider">
+        <img src="1.png">
+        <img src="2.png">
+        <img src="3.png">
+    </div>
+
+    <script>
+        // https://code.mu/ru/javascript/book/practice/slider/image-via-array/
+
+        let slider = document.querySelector('#slider');
+
+        let images = document.querySelectorAll('#slider img');
+
+        let i = 0;
+
+        // сперва все скрыли
+        images.forEach(function (element) {
+            element.classList.add('hidden');
+        });
+
+        
+        setInterval(function () {
+            // если 0, то скрываем последнюю картинку
+            if (i === 0) {
+                images[images.length - 1].classList.add('hidden');
+            }
+
+            // скрываем предыдущую, если не последняя
+            if (i > 0) {
+                images[i - 1].classList.add('hidden');
+            }
+
+            // показываем
+            images[i].classList.remove('hidden');
+            i++;
+
+            // начинаем с нуля если закончились
+            if (i > images.length - 1) {
+                i = 0;
+            };
+        }, 1000);
+
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

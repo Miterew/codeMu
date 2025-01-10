@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content="width=device-width, initial-scale=1.0">
+    <title>Разбор чередование крестика и нолика - ⊗jsPrTTTCTAA</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #field td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="field">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <script>
+        // https://code.mu/ru/javascript/book/practice/tick-tack-toe/task-formulation/
+        // Начинаем крестики-нолики
+
+        let cells = document.querySelectorAll('#field td');
+        start(cells);
+
+        function start(cells) {
+            let i = 0; // начальное значение счетчика
+
+            cells.forEach(cell => {
+                cell.addEventListener('click', function setSymbol() {
+                    this.textContent = ['X', 'O'][i % 2];
+                    
+                    i++; // увеличиваем счетчик
+                    this.removeEventListener('click', setSymbol);
+                })
+
+            });
+        }
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

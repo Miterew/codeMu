@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content="width=device-width, initial-scale=1.0">
+    <title>Слайдер текста - ⊗jsPrSlTx</title>
+    <style>
+        .colorGreen {
+            color: green;
+        }
+
+        .colorRed {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider"></div>
+    <a href="" id="left">←</a>
+    <a href="" id="right">→</a>
+    <div id="slider"></div>
+
+    <script>
+        // https://code.mu/ru/javascript/book/practice/slider/text-with-arrows/
+        let texts = ['text1', 'text2', 'text3'];
+
+        let slider = document.querySelector('#slider');
+        let left = document.querySelector('#left');
+        let right = document.querySelector('#right');
+
+        let counter = 0;
+        slider.textContent = texts[counter];
+
+
+        left.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            if (counter != 0) {
+                counter--;
+                console.log(counter);
+            } else if (counter === 0) {
+                counter = texts.length - 1;
+                console.log(counter);
+                
+
+            }
+            slider.textContent = texts[counter];
+        })
+
+        right.addEventListener('click', function (event) {
+            event.preventDefault();
+            if(counter == texts.length - 1) {
+                counter = 0;
+                console.log(counter);
+
+            }   else if (counter < texts.length - 1) {
+                counter++;
+                console.log(counter);
+
+            }
+            slider.textContent = texts[counter];
+
+
+        })
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
