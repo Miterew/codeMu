@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport content="width=device-width, initial-scale=1.0">
+    <title>Календарь на JavaScript</title>
+    <style>
+
+        #parent {
+            text-align: center;
+        }
+
+        #calendar {
+            display: inline-block;
+        }
+
+        #calendar td,
+        #calendar th {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #calendar .nav,
+        #calendar .info {
+            text-align: center;
+        }
+
+        #calendar a {
+            color: blue;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        #calendar a:hover {
+            color: red;
+        }
+
+        #calendar .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="parent">
+        <div id="calendar">
+            <div class="info">Янв 2020</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>пн</th>
+                        <th>вт</th>
+                        <th>ср</th>
+                        <th>чт</th>
+                        <th>пт</th>
+                        <th>сб</th>
+                        <th>вс</th>
+                    </tr>
+                </thead>
+                <tbody class="body"></tbody>
+            </table>
+            <div class="nav">
+                <a href="#" class="prev">←</a>
+                <a href="#" class="next">→</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let calendar = document.querySelector('#calendar');
+        let body = calendar.querySelector('.body');
+        let info = document.querySelector('.info');
+        let prev = calendar.querySelector('.prev');
+        let next = calendar.querySelector('.next');
+
+
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth();
+
+        draw(body, year, month);
+
+        next.addEventListener('click', function(event) {
+            event.preventDefault();
+            body.innerHTML = '';
+            month = getNextMonth(month);
+            year = getNextYear(year, month);
+
+            draw(body, year, month);
+        })
+
+        prev.addEventListener('click', function(event) {
+            event.preventDefault();
+            body.innerHTML = '';
+
+            month = getPreviousMonth(month);
+            year = getPreviousYear(year, month);
+
+            draw(body, year, month);
+        })
+
+        function getPreviousYear (year, month) {
+            if(month === 11) {
+                return year - 1;
+            } else {
+                return year;
+            }
+
+        }
+
+        function getPreviousMonth (month) {
+            if (month === 0) {
+                return 11;
+            } else {
+                return month - 1;
+            }
+        }
+
+
+        function getNextYear(year, month) {
+            if(month === 11) {
+                return ++year;
+            } else if (month != 11) {
+                return year;
+            }
+        }
+
+        function getNextMonth(month) {
+            if (month != 11) {
+                return month + 1;
+            } else if (month === 11) {
+                return 0;
+            }
+        }
+
+        function draw(body, year, month) {
+            let arr = range(getLastDay(year, month));
+
+            let firstWeekDay = getFirstWeekDay(year, month);
+            let lastWeekDay = getLastWeekDay(year, month);
+
+            let nums = chunk(normalize(arr, firstWeekDay, 6 - lastWeekDay), 7);
+
+            createTable(body, nums);
+            currentMonthYear(info, year, month)
+        }
+
+        function currentMonthYear(info, year, month) {
+            let monthList = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+            info.textContent = monthList[month] + ' ' + year;
+        }
+
+        function range(count) {
+            let array = [];
+
+            for (let i = 1; i <= count; i++) {
+                array.push(i);
+            }
+
+            return array;
+        }
+
+        function getLastDay(year, month) {
+            let newDate = new Date(year, month + 1, 0);
+            return newDate.getDate();
+        }
+
+        function getFirstWeekDay(year, month) {
+            // let newDate = new Date(year, month, 1);
+            // return newDate.getDay();
+            // Сверху как было, но появился баг если воскренье выпадает на 1 число, то лишние пробелы
+
+
+            
+            // Проанализировать дополнительно следующие две строки
+            let day = new Date(year, month, 1).getDay();
+            return day === 0 ? 7 : day; // Перенос воскресенья в конец
+        }
+
+        function getLastWeekDay(year, month) {
+            // Вопрос - лучше оформлять так переменную lastDay для читабельности
+            // или сразу в newDate последним параметром функции делать вызов другой функции?
+
+            // let lastDay = getLastDay(year, month);
+            // let newDate = new Date(year, month, lastDay);
+            // return newDate.getDay();
+
+            // Сверху как было, но появился баг если воскренье выпадает на 1 число, то лишние пробелы
+
+
+
+            // Проанализировать дополнительно следующие две строки
+            let day = new Date(year, month, getLastDay(year, month)).getDay();
+            return day === 0 ? 7 : day; // Перенос воскресенья в конец
+        }
+
+        function normalize(arr, left, right) {
+            let array = [...arr];
+
+            
+            for (let i = 0; i <= right; i++) {
+                array.push('');
+            }
+
+            for (let y = 0; y < left - 1; y++) {
+                array.unshift('');
+            }
+
+            return array;
+        }
+
+        // сам не додумался о том, что можно в условия пихнуть i += n, 
+        // пытался вложенными циклами,
+        // больше часа ковырялся без результата, спросил у chatGPT. 
+        // Но глубоко проанализировал и сам написал не подглядывая.
+        function chunk(arr, n) {
+            let newArr = [];
+
+            for (let i = 0; i < arr.length; i += n) {
+                newArr.push(arr.slice(i, i + n));
+            }
+
+            return newArr;
+        }
+
+        // сделал через forEach, кажется так лаконичнее
+        function createTable(parent, arr) {
+            arr.forEach(element => {
+                let newTr = document.createElement('tr');
+
+                for (let i = 0; i < element.length; i++) {
+                    let newTd = document.createElement('td');
+                    newTd.textContent = element[i];
+                    newTr.appendChild(newTd);
+                }
+
+                parent.appendChild(newTr);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
