@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллекции Map - 32/294 - ⊗jsSpMpInr</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+
+
+
+    <script>
+        // let arr1 = ['Текст1', 'Буквы1'];
+        // let arr2 = ['Текст2', 'Буквы2'];
+        // let arr3 = ['Текст3', 'Буквы3'];
+
+        // let map = new Map();
+
+        // map.set(arr1, 'Test1');
+
+        // console.log(map.get(arr1));
+        
+
+        // #2
+        // Пусть даны 3 объекта и 3 массива. Создайте коллекцию Map, 
+        // сделайте ключами коллекции объекты, а значениями - соответствующие массивы.
+        let obj1 = { 'name1': 'Текст1' };
+        let obj2 = { 'name2': 'Текст2' };
+        let obj3 = { 'name3': 'Текст3' };
+
+        let arr1 = ['Текст1', 'Буквы1'];
+        let arr2 = ['Текст2', 'Буквы2'];
+        let arr3 = ['Текст3', 'Буквы3'];
+
+        let map = new Map();
+
+        map.set(obj1, arr1);
+        map.set(obj2, arr2);
+        map.set(obj3, arr3);
+        console.log(map.get(obj2));
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

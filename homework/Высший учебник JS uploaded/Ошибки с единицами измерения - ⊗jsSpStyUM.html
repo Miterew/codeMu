@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <div id="elem" style="width: 300px; height: 
+	200px; border: 1px solid red;">
+        text
+    </div>
+<button id="proc50">+50 px</button>
+<button id="plus10">+10%</button>
+
+
+    <script>
+
+let div = document.querySelector('#elem');
+let buttonPlus50proc = document.querySelector('#proc50');
+let buttonPlus10proc = document.querySelector('#plus10')
+
+buttonPlus50proc.addEventListener('click', function() {
+    div.style.height = parseInt(div.style.height) + 50 + 'px';
+    div.style.width = parseInt(div.style.width) + 50 + 'px';
+})
+
+
+buttonPlus10proc.addEventListener('click', function() {
+    div.style.height = parseInt(div.style.height) * 1.1 + 'px';
+    div.style.width = parseInt(div.style.width) * 1.1 + 'px';
+})
+
+
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

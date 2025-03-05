@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .main {
+            background-color: gray;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main" style="font-size: 1.5em;">
+        123
+    </div>
+    <button>Click</button>
+    <script>
+
+        let main = document.querySelector('.main');
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function () {
+            main.style.width = '400px';
+            main.style.height = '300px';
+
+            main.textContent = 'Ширина ' + parseInt(main.style.width)
+                + ' | Высота ' + parseInt(main.style.height)
+                + ' | Размер шрифта ' + parseFloat(main.style.fontSize);
+        })
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

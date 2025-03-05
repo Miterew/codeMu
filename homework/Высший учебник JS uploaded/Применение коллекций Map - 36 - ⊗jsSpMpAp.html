@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Применение коллекций Map - 36 - ⊗jsSpMpAp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <input >
+    <input >
+
+    <script>
+        // #1
+        // Даны инпуты. Переберите эти инпуты циклом и создайте коллекцию Map,
+        // ключами в которой будут инпуты, а значением - их порядковый номер на странице.
+        // Сделайте так, чтобы по клику на любой инпут ему в value записывался его порядковый номер.
+        // let inputs = document.querySelectorAll('input');
+
+        // let map = new Map();
+
+        // let i = 1;
+        // for (let input of inputs) {
+        //     map.set(input, i++);
+        // }
+
+        // for (let input of inputs) {
+        //     input.addEventListener('click', function () {
+        //         this.value = map.get(this);
+        //     })
+        // }
+
+        // #2
+        // Даны инпуты. В каждый инпут можно ввести число. 
+        // Пусть по нажатию на Enter инпут запоминает введенное число. 
+        // Сделайте так, чтобы по потери фокуса в инпуте в консоль выводился 
+        // массив всех введенных ранее в инпут чисел.
+
+        let inputs = document.querySelectorAll('input');
+
+        let map = new Map();
+
+        for(let input of inputs) {
+            let array = [];
+
+            input.addEventListener('keyup', function() {
+                if(event.code === "Enter") {
+                    array.push(this.value);
+                    map.set(this, array);
+                }
+            });
+
+            input.addEventListener('blur', function() {
+                console.log(map.get(this)) ;
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

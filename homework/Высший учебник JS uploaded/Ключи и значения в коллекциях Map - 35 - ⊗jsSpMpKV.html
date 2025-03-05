@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ключи и значения в коллекциях Map - 35 - ⊗jsSpMpKV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+    <script>
+
+        let obj1 = { 'name1': 'Текст1' };
+        let obj2 = { 'name2': 'Текст2' };
+
+        let arr1 = ['Текст1', 'Буквы1'];
+        let arr2 = ['Текст2', 'Буквы2'];
+
+        let map = new Map();
+
+        map.set(obj1, arr1);
+        map.set(obj2, arr2);
+
+        let arrKeys = [];
+        let arrValues = [];
+
+        for(let [key, value] of map) {
+            arrKeys.push(key);
+            arrValues.push(value);
+        }
+
+        console.log(arrKeys);
+        console.log(arrValues);
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
